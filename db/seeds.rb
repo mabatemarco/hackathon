@@ -42,7 +42,19 @@
 
 10.times{
   Member.create!(
- {groups_id:1,
-  users_id:(rand(100)+1),
+ {group_id:1,
+  user_id:rand(100)+1,
+  is_admin:false
+})}
+10.times{
+  Member.create!(
+ {group_id:2,
+  user_id:rand(100)+1,
+  is_admin:false
+})}
+10.times{
+  Member.create!(
+ {group_id:3,
+  user_id:rand(100)+1,
   is_admin:false
 })}
