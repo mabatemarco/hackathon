@@ -6,7 +6,7 @@ let apiUrl
 
 const apiUrls = {
     production: 'https://sei-items-api.herokuapp.com/api',
-    development: 'http://localhost:3000/api'
+    development: 'http://localhost:3000/'
 }
 
 if (window.location.hostname === 'localhost') {
@@ -16,11 +16,13 @@ if (window.location.hostname === 'localhost') {
 }
 
 const api = Axios.create({
-    baseURL: apiUrl,
+  baseURL: apiUrl,
+  common: {
     headers: {
-        Authorization: `Bearer ${JwtToken}`,
-        'Access-Control-Allow-Origin': '*'
+      Authorization: `Bearer ${JwtToken}`,
+      'Access-Control-Allow-Origin': '*'
     }
+  }
 })
 
 export default api
