@@ -13,11 +13,17 @@ const Register = (props) => {
 
  const handleRegister = async e => {
    e.preventDefault();
-   debugger
     const currentUser = await signUp(authFormData)
     setCurrentUser(currentUser)
     history.push("/");
  }
+  
+  const handleChange = e => {
+    const { target } = e;
+    const { name, value } = target;
+    
+    setFormData({ ...authFormData, [name]: value })
+  }
   
   
   return (
@@ -26,11 +32,11 @@ const Register = (props) => {
       <hr />
       <form onSubmit={(e) => { handleRegister(e) }} >
         <p>Username:</p>
-        <input name="username" type="text" value={authFormData.username} onChange={e => setFormData(e.target.value)} />
+        <input name="username" type="text" value={authFormData.username} onChange={e => handleChange(e)} />
         <p>Email:</p>
-        <input name="email" type="text" value={authFormData.email} onChange={e => setFormData(e.target.value)} />
+        <input name="email" type="text" value={authFormData.email} onChange={e => handleChange(e)} />
         <p>Password:</p>
-        <input name="password" type="password" value={authFormData.password} onChange={e => setFormData(e.target.value)} />
+        <input name="password" type="password" value={authFormData.password} onChange={e => handleChange(e)} />
         <hr/>
         <button>Register</button>
       </form>
