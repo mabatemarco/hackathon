@@ -7,6 +7,7 @@ import Landing from './components/Landing'
 import Groups from './components/Groups'
 import Group from './components/Group'
 import Interests from './components/Interests'
+import Header from './components/Header'
 import { verifyUser, loginUser, registerUser } from './services/auth'
 import { getOneUser } from './services/apihelper'
 
@@ -31,12 +32,11 @@ class App extends Component {
         userData
       })
       if (userData.groups.length>0) {
-        this.props.history.push(`groups/${userData.groups[0].id}`)
+        this.props.history.push(`/groups/${userData.groups[0].id}`)
       } else {
-        this.props.history.push('groups')
+        this.props.history.push('/groups')
       }
     }
-    console.log(currentUser)
   }
 
   handleLogin = async (e) => {
@@ -48,9 +48,9 @@ class App extends Component {
       userData
     })
     if (userData.groups.length>0) {
-      this.props.history.push(`groups/${userData.groups[0].id}`)
+      this.props.history.push(`/groups/${userData.groups[0].id}`)
     } else {
-      this.props.history.push('groups')
+      this.props.history.push('/groups')
     }
   };
 
@@ -73,10 +73,23 @@ class App extends Component {
     }))
   }
 
+  handleLogout = () => {
+    this.setState({
+      currentUser: null,
+      userData: null
+    })
+    localStorage.removeItem('authToken')
+    this.props.history.push('/')
+  }
+
   render() {
     return (
+      <div className="App">
+        <Header
+          handleLogout={this.handleLogout}
+          currentUser={this.state.currentUser}
+        />
       <Switch>
-        <div className="App">
           <Route exact path='/' render={() => (<Landing />)} />
           <Route exact path='/login' render={() =>
             (<Login
@@ -111,8 +124,8 @@ class App extends Component {
               userData={this.state.userData}
             />
           )} />
-        </div>
       </Switch>
+        </div>
     );
   }
 }

@@ -1,0 +1,36 @@
+.chat{
+  border:1px solid black;
+  width: 45%;
+  height: 90vh
+}
+
+.chat-window{
+  height:70vh;
+  overflow:scroll
+}
+
+.chat-post{
+  display:flex;
+  justify-content:left;
+  width:95%;
+  margin: .2em auto;
+  border:1px solid black;
+}
+
+.chat-post-image{
+  width:15%;
+  height:80px;
+  margin-right: 1em;
+  margin-top: .1em
+}
+
+.chat-post-image img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  
+}
+
+.chat-post-post h6{
+ margin-top:.1em
+}

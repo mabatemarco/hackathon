@@ -35,13 +35,13 @@ export async function getAllGroups() {
 
 //data should include title, description, image, private
 export async function createGroup(data) {
-  const resp = await api.post(`/groups`, {group: data})
+  const resp = await api.post(`/groups`, { group: data })
   return resp.data
 }
 
 // ==================Posts====================
 //data should just include post
 export async function createPost(groupId, data) {
-  const resp = await api.post(`/groups/${groupId}/posts`, {group: data})
+  const resp = await api.post(`/groups/${groupId}/posts`, { post: { post: data } })
   return resp.data
 }

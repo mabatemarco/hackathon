@@ -2,9 +2,9 @@ import React from 'react'
 import '../css/Events.css';
 
 
-export default function Events() {
+export default function Events(props) {
   return (
-    <div>
+    <div className='events'>
       
     </div>
   )

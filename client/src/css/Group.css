@@ -1,0 +1,4 @@
+.group-page-flex{
+  display:flex;
+  justify-content: space-evenly;
+}
