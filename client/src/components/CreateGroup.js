@@ -1,8 +1,8 @@
 import React from 'react'
-import '../css/Events.css';
+import '../css/CreateGroup.css';
 
 
-export default function Events() {
+export default function CreateGroup() {
   return (
     <div>
       

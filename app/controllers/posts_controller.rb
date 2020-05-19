@@ -15,7 +15,10 @@ class PostsController < ApplicationController
 
   # POST /posts
   def create
-    @post = Post.new(post_params)
+    @group=Group.find(params[:group_id])
+
+    @post = @groups.posts.new(post_params)
+    @post.user_id=@current_user.id
 
     if @post.save
       render json: @post, status: :created
@@ -46,6 +49,6 @@ class PostsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def post_params
-      params.require(:post).permit(:post, :user_id, :group_id)
+      params.require(:post).permit(:post)
     end
 end
