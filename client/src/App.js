@@ -31,9 +31,9 @@ class App extends Component {
       this.setState({
         userData
       })
-      if (userData.groups.length>0) {
+      if (userData.groups.length>0 && this.props.history.length<2) {
         this.props.history.push(`/groups/${userData.groups[0].id}`)
-      } else {
+      } else if (this.props.history.length<2) {
         this.props.history.push('/groups')
       }
     }

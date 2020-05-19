@@ -34,7 +34,7 @@ export default function Group(props) {
 
 
         :
-        <h12>no data</h12>
+        <h2>no data</h2>
       }</>
   )
 }
