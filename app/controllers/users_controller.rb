@@ -6,12 +6,12 @@ class UsersController < ApplicationController
   def index
     @users = User.all
 
-    render json: @users
+    render json: @users, include: [:groups,:interests]
   end
 
   # GET /users/1
   def show
-    render json: @user
+    render json: @user, include: [{groups: {include: {members: {include: :user}} }},:interests]
   end
 
   # POST /users
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       @token = encode({ user_id: @user.id, username: @user.username })
-      render json: { user: @user, token: @token }, status: :created, location: @user
+      render json: { user: @user, token: @token }, status: :created
     else
       render json: @user.errors, status: :unprocessable_entity
     end

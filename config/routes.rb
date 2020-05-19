@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :sharedinterests
   resources :members
   resources :interests
   resources :groups
