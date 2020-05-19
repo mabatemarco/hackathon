@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  resources :posts
-  resources :sharedinterests
-  resources :members
+ 
   resources :interests
-  resources :groups
+  resources :groups do
+    resources :posts
+  end
   resources :users
 
   post '/auth/login', to: 'authentication#login'

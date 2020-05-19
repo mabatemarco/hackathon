@@ -1,8 +1,7 @@
 import React from 'react'
-import '../css/Events.css';
+import '../css/Interests.css'
 
-
-export default function Events() {
+export default function Interests() {
   return (
     <div>
       

@@ -1,4 +1,5 @@
 import React from 'react'
+import '../css/Landing.css';
 import { withRouter, Link, useHistory } from 'react-router-dom';
 
 

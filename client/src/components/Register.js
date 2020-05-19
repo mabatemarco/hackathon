@@ -1,4 +1,5 @@
 import React, { useState, } from 'react';
+import '../css/Register.css';
 import { registerUser } from '../services/auth'
 import  {useHistory}  from "react-router-dom";
 

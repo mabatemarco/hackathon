@@ -1,4 +1,5 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
+import '../css/Group.css';
 import { getOneGroup } from '../services/apihelper.js'
 import Selector from './Selector.js'
 import Chat from './Chat.js'
