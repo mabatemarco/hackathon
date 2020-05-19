@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
 
-    render json: @users, include: [:groups,:interests]
+    render json: @users, include: [:groups, :interests]
   end
 
   # GET /users/1

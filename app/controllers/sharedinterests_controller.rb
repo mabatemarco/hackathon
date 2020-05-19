@@ -18,7 +18,7 @@ class SharedinterestsController < ApplicationController
     @sharedinterest = Sharedinterest.new(sharedinterest_params)
 
     if @sharedinterest.save
-      render json: @sharedinterest, status: :created, location: @sharedinterest
+      render json: @sharedinterest, status: :created
     else
       render json: @sharedinterest.errors, status: :unprocessable_entity
     end

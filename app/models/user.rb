@@ -10,4 +10,5 @@ class User < ApplicationRecord
   has_many :groups, through: :members
   has_many :sharedinterests
   has_many :interests, through: :sharedinterests
+  has_many :posts
 end

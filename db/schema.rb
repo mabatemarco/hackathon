@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_19_030502) do
+ActiveRecord::Schema.define(version: 2020_05_19_033042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(version: 2020_05_19_030502) do
     t.index ["user_id"], name: "index_members_on_user_id"
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.text "post"
+    t.bigint "user_id", null: false
+    t.bigint "group_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["group_id"], name: "index_posts_on_group_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
   create_table "sharedinterests", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "interest_id", null: false
@@ -66,6 +76,8 @@ ActiveRecord::Schema.define(version: 2020_05_19_030502) do
 
   add_foreign_key "members", "groups"
   add_foreign_key "members", "users"
+  add_foreign_key "posts", "groups"
+  add_foreign_key "posts", "users"
   add_foreign_key "sharedinterests", "interests"
   add_foreign_key "sharedinterests", "users"
 end

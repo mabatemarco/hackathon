@@ -1,5 +1,5 @@
 class InterestsController < ApplicationController
-  before_action :set_interest, only: [:show, :update, :destroy]
+  before_action :set_interest, only: [:update]
   before_action :authorize_request, except: [:index, :show]
 
   # GET /interests
@@ -11,13 +11,15 @@ class InterestsController < ApplicationController
 
   # GET /interests/[name]
   def show
+    @interest = Interest.find_by(interest: params[:id])
+
     render json: @interest, include: :users
   end
 
   # POST /interests
   def create
     if interest.exists?(interest: params[:id])
-      @interest = Interest.find_by(interst: params[:id])
+      @interest = Interest.find_by(interest: params[:id])
       @sharedinterest = Sharedinterest.new({user_id: @current_user.id, interest_id: @interest.id})
       if @interest.save
         render json: @interest, status: :created
@@ -46,7 +48,8 @@ class InterestsController < ApplicationController
 
   # DELETE /interests/1
   def destroy
-    @interest.destroy
+    @sharedinterest=Sharedinterest.find_by(interest: params[:id], user_id: @current_user.id)
+    @sharedinterest.destroy
   end
 
   private

@@ -11,7 +11,7 @@ class GroupsController < ApplicationController
 
   # GET /groups/1
   def show
-    render json: @group, include: {members: {include: {user: {include: :groups}} }}
+    render json: @group, include: [{members: {include: {user: {include: :groups}}}}, {posts: {include: :user}}] 
   end
 
   # POST /groups
