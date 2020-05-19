@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
 
   has_many :members
-  has_and_belongs_to_many :groups, through: :members
-  has_many :interests
+  has_many :groups, through: :members
+  has_many :sharedinterests
+  has_many :interests, through: :sharedinterests
+  has_many :posts
 end

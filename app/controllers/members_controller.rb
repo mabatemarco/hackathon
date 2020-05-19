@@ -1,5 +1,6 @@
 class MembersController < ApplicationController
   before_action :set_member, only: [:show, :update, :destroy]
+  before_action :authorize_request, except: [:index, :show]
 
   # GET /members
   def index
@@ -18,7 +19,7 @@ class MembersController < ApplicationController
     @member = Member.new(member_params)
 
     if @member.save
-      render json: @member, status: :created, location: @member
+      render json: @member, status: :created
     else
       render json: @member.errors, status: :unprocessable_entity
     end
@@ -46,6 +47,6 @@ class MembersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def member_params
-      params.fetch(:member, {})
+      params.require(:member).permit(:group_id, :user_id, :is_admin)
     end
 end
