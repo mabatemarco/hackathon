@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter, Route, Switch } from "react-router"; // removed Link and useHistory 
 import './App.css';
+import './css/css-circular-prog-bar.css'
 import Login from './components/Login'
 import Register from './components/Register'
 import Landing from './components/Landing'
@@ -32,7 +33,7 @@ class App extends Component {
       this.setState({
         userData
       })
-      if (userData.groups.length>0 && this.props.history.length<2) {
+      if (userData.groups.length>0 && this.props.history.length<3) {
         this.props.history.push(`/groups/${userData.groups[0].id}`)
       } else if (this.props.history.length<2) {
         this.props.history.push('/groups')

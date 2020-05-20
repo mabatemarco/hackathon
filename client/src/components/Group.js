@@ -10,17 +10,13 @@ export default function Group(props) {
   const [id, setId] = useState(props.id)
 
   useEffect(() => {
-    async function getData () {
+    async function getData() {
       console.log('rfafwe')
       const groupData = await getOneGroup(props.id)
       setGroupData(groupData)
     }
-   getData()
+    getData()
   }, [props.id])
-
-
-
-
 
 
   return (
@@ -38,8 +34,6 @@ export default function Group(props) {
             />
           </div>
         </div>
-
-
         :
         <h2>no data</h2>
       }</>

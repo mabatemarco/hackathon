@@ -41,7 +41,10 @@ export default function Chat(props) {
     <div className='chat-container'>
       <div className='chat-title'>
         <h2>{groupData.title}</h2>
+        <div className='.chat-title-images'>
+        </div>
       </div>
+
       <div className='chat-events'>
         <div id='chat' className='chat-window'>
           {groupData.posts.map(post => (
@@ -57,8 +60,29 @@ export default function Chat(props) {
           ))}
         </div>
 
-        <div className='events'></div>
+        <div className='events'>
+          <h4>Upcoming Events</h4>
+          {groupData.events.map(event => {
+            let showDate = event.date.slice(5, 7) + '/' + event.date.slice(8, 10) + '/' + event.date.slice(2, 4)
+            let amPm = 'AM'
+            let hour = event.date.slice(11, 13)
+            if (hour > 12) {
+              hour -= 12;
+              amPm='PM'
+            }
+            let min= event.date.slice(14,16)
+            return (
+              <div className='chat-event'>
+                <div className='chat-event-event'>
+                  <h4>{event.title}</h4>
+                  <h5>{showDate} - {hour}:{min} {amPm}</h5>
+                </div>
+              </div>)
+          })}
+        </div>
       </div>
+
+
       <div className='chat-bar'>
         <form onSubmit={handleSubmit}>
           <input value={currentPost} onChange={handleChange} />
