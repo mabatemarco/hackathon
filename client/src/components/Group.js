@@ -4,7 +4,6 @@ import { useLocation, withRouter } from 'react-router-dom'
 import { getOneGroup } from '../services/apihelper.js'
 import Selector from './Selector.js'
 import Chat from './Chat.js'
-import Events from './Events.js'
 
 export default function Group(props) {
   const [groupData, setGroupData] = useState(null)
@@ -35,9 +34,6 @@ export default function Group(props) {
               userData={props.userData}
             />
             <Chat
-              groupData={groupData}
-            />
-            <Events
               groupData={groupData}
             />
           </div>

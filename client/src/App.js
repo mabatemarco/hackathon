@@ -123,7 +123,7 @@ class App extends Component {
               handleUpdate={this.hanldeUpdate}
             />
           )} />
-          {/*
+          
           <Route exact path='/groups' render={() => (
             <Groups
               currentUser={this.state.currentUser}
@@ -142,7 +142,7 @@ class App extends Component {
               currentUser={this.state.currentUser}
               userData={this.state.userData}
             />
-          )} />*/}
+          )} />
       </Switch>
         </div>
     );

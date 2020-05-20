@@ -1,12 +1,53 @@
-.chat{
+.chat-container{
+  width:75%;
+  height: 85vh
+}
+
+.chat-events{
+  width:100%;
+  display:flex;
+  justify-content: space-between;
+}
+
+.chat-bar{
+  height:10vh;
+  width:100%;
+  display:flex;
+  align-items: flex-end; 
+}
+
+.chat-bar form{
+  width:100%;
+}
+
+.chat-bar input{
+  border: 2px solid black;
+  box-sizing: border-box;
+  width:100%;
+  font-size: 1.5em;
+  padding:15px;
+  margin-top:auto;
+}
+
+.chat-title{
+  height:10vh
+}
+
+.chat-title h2{
+margin:0
+}
+
+.events{
+  width:25%;
   border:1px solid black;
-  width: 45%;
-  height: 90vh
+  height:100%
 }
 
 .chat-window{
-  height:70vh;
-  overflow:scroll
+  border:1px solid black;
+  height:65vh;
+  overflow:scroll;
+  width: 70%;
 }
 
 .chat-post{

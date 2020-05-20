@@ -6,6 +6,8 @@ export default function Selector(props) {
   const [which, setWhich] = useState('members')
   const [groupData, setGroupData] = useState(props.groupData)
   const [userData, setUserData] = useState(props.userData)
+  const [memberClass, setMemberClass] = useState('bold')
+  const [groupClass, setGroupClass] = useState('')
 
   useEffect(() => {
     setGroupData(props.groupData)
@@ -16,12 +18,25 @@ export default function Selector(props) {
     setWhich(e.target.value)
   }
 
+  const memberClick = () => {
+    setWhich('members')
+    setMemberClass('bold')
+    setGroupClass('')
+  }
+
+  const groupClick = () => {
+    setWhich('groups')
+    setMemberClass('')
+    setGroupClass('bold')
+  }
+
   return (
     <div className='selector'>
-      <select onChange={handleSelect}>
-        <option value='members'>People in your Group</option>
-        <option value='groups'>Your Groups</option>
-      </select>
+      <div className='selector-which'>
+        <h3 className={memberClass} onClick={memberClick}>Members</h3> 
+        <h3>|</h3> 
+        <h3 className={groupClass} onClick={groupClick}>Groups</h3> 
+      </div>
       <div className='selector-content'>
         {which == 'members' ?
 
