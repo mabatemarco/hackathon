@@ -11,6 +11,10 @@ export async function getAllUsers() {
   return resp.data
 }
 
+export async function updateUser(id, userData) {
+  const resp = await api.put(`/users/${id}`, { userData })
+  return resp.data
+}
 // ==================Interests====================
 export async function getAllInterests() {
   const resp = await api.get(`/interests`)
