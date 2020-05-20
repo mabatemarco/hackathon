@@ -35,7 +35,7 @@ class App extends Component {
       })
       if (userData.groups.length>0 && this.props.history.length<3) {
         this.props.history.push(`/groups/${userData.groups[0].id}`)
-      } else if (this.props.history.length<2) {
+      } else if (this.props.history.length < 2) {
         this.props.history.push('/groups')
       }
     }
@@ -50,7 +50,7 @@ class App extends Component {
     this.setState({
       userData
     })
-    if (userData.groups.length>0) {
+    if (userData.groups.length > 0) {
       this.props.history.push(`/groups/${userData.groups[0].id}`)
     } else {
       this.props.history.push('/groups')
@@ -89,7 +89,7 @@ class App extends Component {
     e.preventDefault();
     debugger
     const userData = await updateUser(this.state.userData.id, this.state.userData)
-    this.setState({userData})
+    this.setState({ userData })
     this.props.history.push('/')
   }
 
@@ -101,7 +101,7 @@ class App extends Component {
           currentUser={this.state.currentUser}
           userData={this.state.userData}
         />
-      <Switch>
+        <Switch>
           <Route exact path='/' render={() => (<Landing />)} />
           <Route exact path='/login' render={() =>
             (<Login
@@ -119,12 +119,11 @@ class App extends Component {
             />)} />
           <Route exact path='/profile/:id' render={() => (
             <Profile
-            currentUser={this.state.currentUser}
+              currentUser={this.state.currentUser}
               userData={this.state.userData}
               handleUpdate={this.hanldeUpdate}
             />
           )} />
-          
           <Route exact path='/groups' render={() => (
             <Groups
               currentUser={this.state.currentUser}
@@ -144,8 +143,8 @@ class App extends Component {
               userData={this.state.userData}
             />
           )} />
-      </Switch>
-        </div>
+        </Switch>
+      </div>
     );
   }
 }
