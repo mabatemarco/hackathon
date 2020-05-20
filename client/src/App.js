@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter, Route, Switch, Link, useHistory } from "react-router";
+import { withRouter, Route, Switch } from "react-router"; // removed Link and useHistory 
 import './App.css';
 import Login from './components/Login'
 import Register from './components/Register'

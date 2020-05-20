@@ -1,9 +1,9 @@
 import React from 'react'
 import '../css/Landing.css';
-import { withRouter, Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';// removed withRouter and useHistory
 
 
-export default function Landing(props) {
+export default function Landing() {
   
 
   return (

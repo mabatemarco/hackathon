@@ -1,25 +1,41 @@
-import React, { useState, useEffect } from 'react';
+import React, { Component } from 'react';
 import '../css/Groups.css';
+import OneGroup from './OneGroup';
 import { getAllGroups } from '../services/apihelper.js';
 import Group from './Group'
 
-export default function Groups(props) {
-  // Initializing allGroupsData in State with a value of 'null'
-  const [allGroupsData, setAllGroupsData] = useState(null);
+class Groups extends Component {
+  state = {
+    allGroupsData: null
+  }
 
   // making an axios call to DB to get allGroupsData then reassigning the value in state
-  useEffect(async () => {
-    const allGroupsData = await getAllGroups();
-    return setAllGroupsData(allGroupsData);
-  }, [])
-
-  return (
-    props.allGroupsData.map(group => {
-      return (
-        <div className="group-list">
-        
-        </div>
-      )
+  componentDidMount = async () => {
+    const groupsData = await getAllGroups();
+    this.setState({
+      allGroupsData: groupsData
     })
-  )
+  }
+
+
+  render() {
+    return (this.state.allGroupsData &&
+      this.state.allGroupsData.map((onegroup) => {
+        return (
+          <div>
+            <OneGroup
+              className={'group-list'}
+              id={onegroup.id}
+              title={onegroup.title}
+              description={onegroup.description}
+              imageURL={onegroup.image}
+              private={onegroup.private}
+            />
+          </div>
+        )
+      })
+    )
+  }
 }
+
+export default Groups;

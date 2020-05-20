@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';//removed useState and useEffect Hooks
 import '../css/Login.css';
 import { Link } from 'react-router-dom';
-import { withRouter, useHistory } from "react-router";
-import { loginUser } from '../services/auth'
+import { withRouter } from "react-router";//removed useHistory Hook
+//import { loginUser } from '../services/auth';
 
 // This component handles our login form and has a link to the register form
 function Login(props) {
