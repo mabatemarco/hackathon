@@ -1,0 +1,12 @@
+.one-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 2em;
+  height: 20vh;
+  width: 20%;
+  border: 2px solid black;
+  padding-top: .5em;
+  margin-top: 3em;
+}
+
