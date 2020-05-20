@@ -1,12 +1,29 @@
 .one-group {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 50% 50%;
   font-size: 2em;
-  height: 20vh;
-  width: 20%;
+  height: 18vh;
+  width: 18%;
   border: 2px solid black;
-  padding-top: .5em;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  margin-left: 1.5%;
+}
+
+.group-scroll {
+  display: block;
+  overflow: scroll;
+  
+}
+
+.one-group img{
+  height: 15vh;
+  justify-self: center;
+  margin-top: 1em;
+}
+
+.one-group h3{
+  justify-self: center;
   margin-top: 3em;
 }
 
