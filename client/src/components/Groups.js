@@ -17,12 +17,7 @@ export default function Groups(props) {
     props.allGroupsData.map(group => {
       return (
         <div className="group-list">
-          <Group
-            title={group.title}
-            description={group.description}
-            image={group.image}
-            private={group.private}
-          />
+        
         </div>
       )
     })
