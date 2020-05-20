@@ -49,3 +49,10 @@ export async function createPost(groupId, data) {
   const resp = await api.post(`/groups/${groupId}/posts`, { post: { post: data } })
   return resp.data
 }
+
+// ==================Events====================
+//data is title and date
+export async function createEvent(groupId, data) {
+  const resp = await api.post(`/groups/${groupId}/events`, { event: data})
+  return resp.data
+}

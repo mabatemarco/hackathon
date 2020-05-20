@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
  
+  resources :events
   resources :interests
   resources :groups do
     resources :posts
+    resources :events
   end
   resources :users
 

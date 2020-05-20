@@ -1,9 +1,25 @@
 .selector{
   width: 20%;
   text-align: center;
-  height: 90vh;
+  height: 85vh;
   overflow:scroll;
   border-bottom: 1px solid black
+}
+
+.selector-which{
+  display:flex;
+  justify-content: center;
+  height: 10vh;
+  align-items: center;
+}
+
+.selector-which h3{
+  margin: 0 .5em;
+  font-weight: 300
+}
+
+.selector-which .bold{
+  font-weight: 700
 }
 
 .selector-content{
