@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../css/Groups.css';
 import OneGroup from './OneGroup';
 import { getAllGroups } from '../services/apihelper.js';
-
+import Group from './Group'
 
 class Groups extends Component {
   state = {

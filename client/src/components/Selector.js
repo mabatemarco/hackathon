@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from 'react'
-import {Link} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 import '../css/Selector.css';
 
 export default function Selector(props) {
   const [which, setWhich] = useState('members')
+  const [groupData, setGroupData] = useState(props.groupData)
+  const [userData, setUserData] = useState(props.userData)
+
+  useEffect(() => {
+    setGroupData(props.groupData)
+    setUserData(props.userData)
+  }, [props])
 
   const handleSelect = (e) => {
     setWhich(e.target.value)
@@ -18,8 +25,8 @@ export default function Selector(props) {
       <div className='selector-content'>
         {which == 'members' ?
 
-          props.groupData.members.map(member => (
-            <div className='selector-members'>
+          groupData.members.map(member => (
+            <div key={member.id} className='selector-members'>
               <div className='selector-member-images'>
                 <img src={member.user.image} />
               </div>
@@ -30,8 +37,8 @@ export default function Selector(props) {
             </div>
           ))
           :
-          props.userData.groups.map(group => (
-            <Link to={`/groups/${group.id}`}>
+          userData.groups.map(group => (
+            <Link key={group.id} to={`/groups/${group.id}`}>
             <div className='selector-groups'>
               <div className='selector-group-images'>
                 <img src={group.image ? group.image : 'https://www.ergcouncil.com/home/images/group-cheering-diversity.jpg'} />

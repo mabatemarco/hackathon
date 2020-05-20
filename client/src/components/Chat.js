@@ -1,11 +1,25 @@
 import React, { useState, useEffect } from 'react'
 import '../css/Chat.css';
 import { createPost } from '../services/apihelper'
+import {animateScroll} from 'react-scroll'
 
 
 export default function Chat(props) {
   const [groupData, setGroupData] = useState(props.groupData)
   const [currentPost, setCurrentPost] = useState('')
+
+  useEffect(() => {
+    setGroupData(props.groupData)
+    setCurrentPost('')
+    setTimeout(scrollToBottom,1000)
+  }, [props])
+
+  const scrollToBottom=()=> {
+    animateScroll.scrollToBottom({
+      containerId: "chat",
+      // smooth: 'easeInOutQuint'
+    });
+}
 
   const handleChange = (e) => {
     setCurrentPost(e.target.value)
@@ -25,7 +39,7 @@ export default function Chat(props) {
   return (
     <div className='chat'>
       <h2>{groupData.title}</h2>
-      <div className='chat-window'>
+      <div id='chat' className='chat-window'>
         {groupData.posts.map(post => (
           <div className='chat-post'>
             <div className='chat-post-image'>
