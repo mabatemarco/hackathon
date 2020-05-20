@@ -4,12 +4,13 @@ import './App.css';
 import Login from './components/Login'
 import Register from './components/Register'
 import Landing from './components/Landing'
+import Profile from './components/Profile'
 import Groups from './components/Groups'
 import Group from './components/Group'
 import Interests from './components/Interests'
 import Header from './components/Header'
 import { verifyUser, loginUser, registerUser } from './services/auth'
-import { getOneUser } from './services/apihelper'
+import { getOneUser, updateUser, } from './services/apihelper'
 
 class App extends Component {
   state = {
@@ -37,6 +38,7 @@ class App extends Component {
         this.props.history.push('/groups')
       }
     }
+    console.log(this.state.userData)
   }
 
   handleLogin = async (e) => {
@@ -82,12 +84,21 @@ class App extends Component {
     this.props.history.push('/')
   }
 
+  hanldeUpdate = async e => {
+    e.preventDefault();
+    debugger
+    const userData = await updateUser(this.state.userData.id, this.state.userData)
+    this.setState({userData})
+    this.props.history.push('/')
+  }
+
   render() {
     return (
       <div className="App">
         <Header
           handleLogout={this.handleLogout}
           currentUser={this.state.currentUser}
+          userData={this.state.userData}
         />
       <Switch>
           <Route exact path='/' render={() => (<Landing />)} />
@@ -105,6 +116,14 @@ class App extends Component {
               authFormData={this.state.authFormData}
               handleRegister={this.handleRegister}
             />)} />
+          <Route exact path='/profile/:id' render={() => (
+            <Profile
+            currentUser={this.state.currentUser}
+              userData={this.state.userData}
+              handleUpdate={this.hanldeUpdate}
+            />
+          )} />
+          {/*
           <Route exact path='/groups' render={() => (
             <Groups
               currentUser={this.state.currentUser}
@@ -123,7 +142,7 @@ class App extends Component {
               currentUser={this.state.currentUser}
               userData={this.state.userData}
             />
-          )} />
+          )} />*/}
       </Switch>
         </div>
     );
