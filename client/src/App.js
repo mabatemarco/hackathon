@@ -11,7 +11,7 @@ import Group from './components/Group'
 import Interests from './components/Interests'
 import Header from './components/Header'
 import { verifyUser, loginUser, registerUser } from './services/auth'
-import { getOneUser, updateUser, } from './services/apihelper'
+import { getOneUser, updateUser } from './services/apihelper'
 
 class App extends Component {
   state = {
@@ -33,7 +33,7 @@ class App extends Component {
       this.setState({
         userData
       })
-      if (userData.groups.length>0 && this.props.history.length<3) {
+      if (userData.groups.length > 0 && this.props.history.length < 3) {
         this.props.history.push(`/groups/${userData.groups[0].id}`)
       } else if (this.props.history.length < 2) {
         this.props.history.push('/groups')
