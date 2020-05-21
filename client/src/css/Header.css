@@ -18,8 +18,8 @@
 }
 
 #header-image {
-  height: 7vh;
-  width: 7vw;
+  height: 5vh;
+  width: 2.5vw;
   border-radius: 50% ;
   border: 1px solid white;
 }
@@ -50,17 +50,41 @@ div.dropdown-menu.show a {
 
 /* pop up profile */
 div.fade.modal.show {
-  width: 70vw;
+  width: 40vw;
+  height: 50vh;;
   border: 2px solid black;
   margin-left: 10vh;
+  position: absolute;
+  top: 10vh;
+  left: 0;
+  z-index: 10;
+  background-color: white;
 }
 
 div.modal-header {
-  height: 10vh;
+  height: 20vh;
   background-color: ivory;
 }
+
+#contained-modal-title-vcenter {
+  display: flex;
+  flex-direction: row;
+}
+
+#profile-image {
+  margin-top: 3.5vh;
+}
+
+#profile-title-info {
+  margin: 13vh 0vw 0vh 20vw;
+}
+
+#profile-title-info p {
+margin: 0;
+}
+
 #email-column {
-margin: 5px;
+margin: 0px 20px;
 }
 
 #email-column h4 {
@@ -72,7 +96,7 @@ margin: 0px;
 }
 
 #phone-column {
-  margin: 5px;
+  margin: 0px 10px;
 }
 
 #phone-column h4 {
