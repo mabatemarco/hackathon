@@ -13,6 +13,8 @@ import Header from './components/Header'
 import CreateGroup from './components/CreateGroup'
 import { verifyUser, loginUser, registerUser } from './services/auth'
 import { getOneUser, updateUser, } from './services/apihelper'
+import {getCityWeather} from './services/weatherApi'
+
 
 class App extends Component {
   state = {
@@ -24,15 +26,19 @@ class App extends Component {
       email: "",
       password: ""
     },
-    userData: null
+    userData: null,
+    userWeather: null,
   }
 
   componentDidMount = async () => {
     const currentUser = await verifyUser();
     if (currentUser) {
       const userData = await getOneUser(currentUser.id)
+      const weather = await getCityWeather('New York')
+      const userWeather = weather.weather[0].icon
       this.setState({
-        userData
+        userData,
+        userWeather
       })
       if (userData.groups.length>0 && this.props.history.length<3) {
         this.props.history.push(`/groups/${userData.groups[0].id}`)
@@ -40,7 +46,7 @@ class App extends Component {
         this.props.history.push('/groups')
       }
     }
-    console.log(this.state.userData)
+    console.log(this.state.userWeather)
   }
 
   handleLogin = async (e) => {
@@ -101,6 +107,7 @@ class App extends Component {
           handleLogout={this.handleLogout}
           currentUser={this.state.currentUser}
           userData={this.state.userData}
+          userWeather={this.state.userWeather}
         />
         <Switch>
           <Route exact path='/' render={() => (<Landing />)} />

@@ -1,0 +1,127 @@
+/* pop up profile */
+#pop-up-profile {
+  width: 40vw;
+  height: 80vh;
+  border: 2px solid black;
+  margin-left: 10vh;
+  position: absolute;
+  top: 10vh;
+  left: 0;
+  z-index: 10;
+  background-color: white;
+  transition: all 0.3s ease-out;
+}
+
+div.modal-header {
+  height: 20vh;
+  background-color: ivory;
+  display: flex;
+  flex-direction: row;
+}
+
+#profile-image {
+ position: relative;
+ top: 11vh;
+ left: -1.4vw
+}
+
+#profile-title-bar {
+  background-color: gray;
+  height: 5vh;
+  width: 40vw;
+  position: relative;
+  top: 6vh;
+  z-index: 5;
+}
+
+#profile-title-info {
+  margin: 13vh 60vw 0vh 0vw;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  z-index: 2;
+}
+
+#username {
+  font-size: 2em;
+position: absolute;
+top: -1.8vh;
+left: -3vw;
+}
+
+#job-title {
+  position: absolute;
+  top: 1vh;
+  left: 12vw;
+  font-size: 0.8em;
+}
+
+#email-column {
+  margin: 1vh 2vw 0px 7vw;
+}
+
+#email {
+  margin: 0px;
+}
+
+#phone-number {
+  margin: 0vh 5vw 0vh 0vw;
+}
+
+#icon-column {
+  position: absolute;
+  top: 18vh;
+  left: 32vw;
+}
+
+#phone-column h4 {
+  margin: 5px;
+}
+
+#phone-column p {
+  margin: 0px;
+}
+
+#pop-up-profile-contact-bar {
+  display: flex;
+  flex-direction: row;
+}
+
+#pop-up-profile-character-area {
+  text-align: center;
+}
+
+#groups-title {
+  position: absolute;
+  left: 1px;
+  font-weight: lighter;
+}
+
+#group-area {
+  display: flex;
+  flex-direction: row;
+  padding: 0vh 7vw 0vh 0vw;
+  position: absolute;
+  top: 41vh;
+}
+
+.group-column {
+  margin: 1vh .5vw;
+}
+
+.group-picture {
+  height: 7vh;
+  width: 7vh;
+  border-radius: 50%;
+}
+
+#interest-title {
+  position: relative;
+  top: 28vh;
+  left: -16vw;
+  font-weight: lighter;
+}
+
+div.modal-footer {
+  text-align: center;
+}

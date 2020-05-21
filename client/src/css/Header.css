@@ -1,5 +1,5 @@
 #header {
-  background-color: gray;
+  background-color: rgb(116, 150, 199);
   height: 10vh;
   display: flex;
   flex-direction: row;
@@ -7,8 +7,9 @@
 
 #search-bar {
   height: 2vh;
-  margin-left: 30vw;
-  margin-top: 2.5vh; 
+  position: absolute;
+  top: 4vh;
+  right: 2vw;
 }
 
 #user-section {
@@ -18,9 +19,9 @@
 }
 
 #header-image {
-  height: 7vh;
-  width: 7vw;
-  border-radius: 50% ;
+  height: 5vh;
+  width: 2.5vw;
+  border-radius: 50%;
   border: 1px solid white;
 }
 
@@ -35,11 +36,10 @@ div.dropdown {
 
 div.dropdown-menu.show {
   background-color: beige;
-  display:flex;
+  display: flex;
   flex-direction: column;
   padding: 10px;
   border: 2px solid black;
-  
 }
 
 div.dropdown-menu.show a {
@@ -48,50 +48,3 @@ div.dropdown-menu.show a {
   margin: 2px;
 }
 
-/* pop up profile */
-div.fade.modal.show {
-  width: 70vw;
-  border: 2px solid black;
-  margin-left: 10vh;
-}
-
-div.modal-header {
-  height: 10vh;
-  background-color: ivory;
-}
-#email-column {
-margin: 5px;
-}
-
-#email-column h4 {
-margin: 0px;
-}
-
-#email-column p {
-  margin: 0px;
-}
-
-#phone-column {
-  margin: 5px;
-}
-
-#phone-column h4 {
-  margin: 5px;
-}
-
-#phone-column p {
-  margin: 0px;
-}
-
-#pop-up-profile-contact-bar {
-  display: flex;
-  flex-direction: row;
-}
-
-#pop-up-profile-character-area { 
-  text-align: center;
-}
-
-div.modal-footer {
-  text-align: center;
-}
