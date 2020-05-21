@@ -48,7 +48,8 @@ width:70%
 .events{
   width:25%;
   border:1px solid black;
-  height:65vh
+  height:65vh;
+  overflow:scroll;
 }
 
 .chat-window{
@@ -82,4 +83,28 @@ width:70%
 
 .chat-post-post h6{
  margin-top:.1em
+}
+
+.chat-event-event{
+  border:1px solid black;
+  text-align:center;
+  width:95%;
+  margin: .5em auto;
+}
+
+.chat-event-event-link{
+  width:90%;
+  overflow: hidden;
+  height:1em;
+  line-height: 1em;
+  margin: 0 auto .5em auto;
+}
+
+.chat-event-event-link:hover{
+  border:1px solid gray;
+  height:auto;
+  overflow: visible;
+  overflow-wrap: break-word;
+  transition: height 2s;
+  background-color:lightblue
 }

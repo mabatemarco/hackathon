@@ -23,6 +23,8 @@ CSV.foreach(Rails.root.join('lib/MOCK_DATA.csv'), headers: true) do |row|
   })
 end
 
+user1=User.create({first_name: 'Jason', last_name: 'Mullings', email: 'jason@jason.com', title: 'Lead software Dev', city: "Brooklyn", state:'NY', username: 'admin', password: 'admin1', image: 'https://previews.123rf.com/images/yupiramos/yupiramos1710/yupiramos171009600/87757491-cartoon-programmer-laptop-working-writing-code-vector-illustration.jpg'})
+
 group1=Group.create!({
   title: 'Management',
   description: 'For Managers',
@@ -41,21 +43,23 @@ group3=Group.create!({
   private: false
 })
 
+Member.create({group_id:1, user_id:user1.id, is_admin: false})
+
 10.times{
   Member.create!(
  {group_id:1,
-  user_id:rand(100)+1,
+  user_id:rand(80)+1,
   is_admin:false
 })}
 12.times{
   Member.create!(
  {group_id:2,
-  user_id:rand(100)+1,
+  user_id:rand(80)+1,
   is_admin:false
 })}
 14.times{
   Member.create!(
  {group_id:3,
-  user_id:rand(100)+1,
+  user_id:rand(80)+1,
   is_admin:false
 })}

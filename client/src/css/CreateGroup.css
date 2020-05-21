@@ -1,0 +1,23 @@
+.create-group{
+  position:absolute;
+  z-index: 2;
+  width:50%;
+  left:25%;
+  background-color:grey;
+  top:15%;
+}
+
+.create-group-people-people{
+  display:flex;
+  justify-content: space-evenly;
+}
+
+.create-group-people-person{
+  position:relative
+}
+
+.create-group-people-person p{
+  position:absolute;
+  top:0;
+  right:0
+}

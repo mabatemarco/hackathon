@@ -20,6 +20,7 @@ export default function Chat(props) {
       // smooth: 'easeInOutQuint'
     });
   }
+  
 
   const handleChange = (e) => {
     setCurrentPost(e.target.value)
@@ -36,6 +37,8 @@ export default function Chat(props) {
     })
     scrollToBottom()
   }
+
+  const sortedEvents = groupData.events.sort((a, b) => new Date(a.date) - new Date(b.date))
 
   return (
     <div className='chat-container'>
@@ -62,7 +65,7 @@ export default function Chat(props) {
 
         <div className='events'>
           <h4>Upcoming Events</h4>
-          {groupData.events.map(event => {
+          {sortedEvents.map(event => {
             let showDate = event.date.slice(5, 7) + '/' + event.date.slice(8, 10) + '/' + event.date.slice(2, 4)
             let amPm = 'AM'
             let hour = event.date.slice(11, 13)
@@ -72,12 +75,14 @@ export default function Chat(props) {
             }
             let min= event.date.slice(14,16)
             return (
-              <div className='chat-event'>
                 <div className='chat-event-event'>
-                  <h4>{event.title}</h4>
                   <h5>{showDate} - {hour}:{min} {amPm}</h5>
+                  <h4>{event.title}</h4>
+                  <div className='chat-event-event-link'>
+                    <a href={event.zoom}>{event.zoom}</a>
+                    </div>
                 </div>
-              </div>)
+              )
           })}
         </div>
       </div>

@@ -52,7 +52,8 @@ export default function Selector(props) {
             </div>
           ))
           :
-          userData.groups.map(group => (
+          <>
+         { userData.groups.map(group => (
             <Link key={group.id} to={`/groups/${group.id}`}>
             <div className='selector-groups'>
               <div className='selector-group-images'>
@@ -63,7 +64,16 @@ export default function Selector(props) {
               </div>
             </div>
             </Link>
-          ))
+          ))}
+          <div onClick={props.randos} className='selector-groups'>
+              <div className='selector-group-images'>
+                <img src='' />
+              </div>
+              <div className='selector-group-info'>
+                <h4>Create New Group</h4>
+              </div>
+            </div>
+          </>
 
         }
       </div>

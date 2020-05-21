@@ -5,7 +5,7 @@
    padding: 0;
    width: 5em;
    height: 5em;
-   background-color: #F2E9E1; 
+   background-color: #5E8CA9; 
    border-radius: 50%;
    line-height: 5em;
 }
@@ -30,7 +30,7 @@
     width: 5em;
     text-align: center;
     display: block;
-    color: #53777A;
+    color: #5E8CA9;
     z-index: 2;
 }
 
@@ -65,7 +65,7 @@
    width: 5em;
    height: 5em;
    border-radius: 50%;
-   border: 0.45em solid #53777A; /*The border is 0.35 but making it larger removes visual artifacts */
+   border: 0.45em solid white; /*The border is 0.35 but making it larger removes visual artifacts */
    /*background-color: #4D642D;*/ /* for debug */
    box-sizing: border-box;
   
@@ -75,7 +75,7 @@
    /*Progress bar for the first 50%, filling the whole right half*/
    position: absolute; /*needed for clipping*/
    clip: rect(0, 5em, 5em, 2.5em);
-   background-color: #53777A;
+   background-color: #5E8CA9;
    border-radius: 50%;
    width: 5em;
    height: 5em;

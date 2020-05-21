@@ -10,6 +10,7 @@ import Groups from './components/Groups'
 import Group from './components/Group'
 import Interests from './components/Interests'
 import Header from './components/Header'
+import CreateGroup from './components/CreateGroup'
 import { verifyUser, loginUser, registerUser } from './services/auth'
 import { getOneUser, updateUser, } from './services/apihelper'
 
@@ -131,11 +132,14 @@ class App extends Component {
             />
           )} />
           <Route exact path='/groups/:id' render={(props) => (
+            <>
+              {this.state.userData&&
             <Group
               currentUser={this.state.currentUser}
               userData={this.state.userData}
               id={props.match.params.id}
-            />
+              />}
+              </>
           )} />
           <Route exact path='/interests' render={(props) => (
             <Interests

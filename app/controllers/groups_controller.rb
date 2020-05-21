@@ -19,15 +19,6 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
 
     if @group.save
-      if @group.private==true
-      @member = Member.new({user_id: @current_user.id, group_id: @group.id, is_admin: true})
-
-      if @member.save
-        render json: @group, status: :created
-      else
-        render json: @member.errors, status: :unprocessable_entity
-      end
-    else
       @member = Member.new({user_id: @current_user.id, group_id: @group.id, is_admin: false})
 
       if @member.save
@@ -35,7 +26,6 @@ class GroupsController < ApplicationController
       else
         render json: @member.errors, status: :unprocessable_entity
       end
-    end
     else
       render json: @group.errors, status: :unprocessable_entity
     end
