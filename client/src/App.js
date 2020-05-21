@@ -33,7 +33,7 @@ class App extends Component {
     const currentUser = await verifyUser();
     if (currentUser) {
       const userData = await getOneUser(currentUser.id)
-      const weather = await getCityWeather('Seattle')
+      const weather = await getCityWeather('New York')
       const userWeather = weather.weather[0].icon
       this.setState({
         userData,
