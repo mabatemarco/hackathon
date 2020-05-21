@@ -10,7 +10,6 @@ export default function Group(props) {
   const [groupData, setGroupData] = useState(null)
   const [id, setId] = useState(props.id)
   const [create, setCreate] = useState(false)
-  const [suggestions, setSuggestions] = useState([])
 
 
   useEffect(() => {
@@ -26,18 +25,6 @@ export default function Group(props) {
     setCreate(!create)
   }
 
-  const randos=() => {
-    let arr = []
-    for (let i = 0; i < 3; i++) {
-      let firstRand = Math.floor(Math.random() * props.userData.groups.length)
-      let secondRand = Math.floor(Math.random() * props.userData.groups[firstRand].members.length)
-      arr.push(props.userData.groups[firstRand].members[secondRand].user.image)
-    }
-    setSuggestions(arr)
-    setCreate(true)
-  }
-
-
   return (
     <>
       {groupData && props.userData ?
@@ -45,7 +32,7 @@ export default function Group(props) {
           {create &&
             <CreateGroup
             userData={props.userData}
-            suggestions={suggestions}
+            showCreate={showCreate}
             />}
           <div className='group-page-flex'>
             <Selector
@@ -53,10 +40,10 @@ export default function Group(props) {
               groupData={groupData}
               userData={props.userData}
               showCreate={showCreate}
-              randos={randos}
             />
             <Chat
               groupData={groupData}
+              timeZone={props.timeZone}
             />
           </div>
         </div>

@@ -1,12 +1,14 @@
 .chat-container{
   width:75%;
-  height: 85vh
+  height: 85vh;
+  background-color: #f9f9fa;
 }
 
 .chat-events{
   width:100%;
   display:flex;
   justify-content: space-between;
+  margin-bottom:.5em
 }
 
 .chat-bar{
@@ -38,66 +40,96 @@
 
 .chat-title h2{
 margin:0;
-width:70%
+width:70%;
+text-align: left;
 }
 
 .chat-title-images{
-  width:25%
+  width:25%;
+  text-align:right;
+}
+
+.chat-title-images img{
+  width:80%;
+  cursor: pointer;
+}
+
+.events-container{
+  width:25%;
 }
 
 .events{
-  width:25%;
-  border:1px solid black;
-  height:65vh;
+  min-height:55vh;
   overflow:scroll;
 }
 
 .chat-window{
-  border:1px solid black;
   height:65vh;
   overflow:scroll;
   width: 72%;
 }
 
 .chat-post{
+
+  border-radius: 11.5px;
+  border: solid 0.5px #52575c;
+  margin: .2em auto;
+  background-color: #ffffff;
+}
+
+.chat-post-flex{
   display:flex;
   justify-content:left;
-  width:95%;
-  margin: .2em auto;
-  border:1px solid black;
 }
 
 .chat-post-image{
   width:15%;
-  height:80px;
+  height:95%;
   margin-right: 1em;
-  margin-top: .1em
+  margin-top: .18em;
+  margin-left: .28em;
 }
 
 .chat-post-image img{
   width:100%;
   height:100%;
   object-fit: cover;
-  
+  border-radius: 100%;
 }
 
 .chat-post-post h6{
- margin-top:.1em
+ margin-bottom:1em;
+ margin-top:2.5em;
+ font-size: 1em;
 }
 
 .chat-event-event{
-  border:1px solid black;
-  text-align:center;
+  border-radius: 6.5px;
+  border: solid 0.5px #52575c;
+  text-align:left;
   width:95%;
   margin: .5em auto;
+  padding-bottom: .5em;
 }
 
-.chat-event-event-link{
-  width:90%;
-  overflow: hidden;
-  height:1em;
-  line-height: 1em;
-  margin: 0 auto .5em auto;
+.chat-event-event h4{
+  margin-left: .5em;
+  margin-bottom: .2em;
+  margin-top:.8em
+}
+
+.chat-event-event h5{
+  margin-left: .5em;
+  margin-top: 0;
+  margin-bottom: .5em;
+  font-weight: 300;
+}
+
+
+.chat-event-event a{
+  color: #5496ff;
+  margin-left: .5em;
+  margin-bottom: .3em
 }
 
 .chat-event-event-link:hover{
@@ -107,4 +139,32 @@ width:70%
   overflow-wrap: break-word;
   transition: height 2s;
   background-color:lightblue
+}
+
+.chat-post-post-content{
+  text-align: left;
+  margin-left:1em
+}
+
+.chat-post-post{
+  text-align:left
+}
+
+.chat-post-post p{
+  font-size: .8em;
+  margin:0
+}
+
+#event-add{
+  height:10vh;
+  justify-content: center;
+  display:flex;
+  align-items: center;
+  padding:0;
+  margin: 0;
+  margin-bottom: .2em;
+}
+
+#event-add img{
+  height: 90%;
 }

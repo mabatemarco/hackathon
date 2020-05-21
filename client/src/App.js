@@ -28,6 +28,7 @@ class App extends Component {
     },
     userData: null,
     userWeather: null,
+    timeZone:null
   }
 
   componentDidMount = async () => {
@@ -36,9 +37,12 @@ class App extends Component {
       const userData = await getOneUser(currentUser.id)
       const weather = await getCityWeather('New York')
       const userWeather = weather.weather[0].icon
+      let d = new Date();
+      let timeZone = d.getTimezoneOffset();
       this.setState({
         userData,
-        userWeather
+        userWeather,
+        timeZone
       })
       if (userData.groups.length>0 && this.props.history.length<3) {
         this.props.history.push(`/groups/${userData.groups[0].id}`)
@@ -46,7 +50,6 @@ class App extends Component {
         this.props.history.push('/groups')
       }
     }
-    console.log(this.state.userWeather)
   }
 
   handleLogin = async (e) => {
@@ -144,7 +147,8 @@ class App extends Component {
             <Group
               currentUser={this.state.currentUser}
               userData={this.state.userData}
-              id={props.match.params.id}
+                id={props.match.params.id}
+                timeZone={this.state.timeZone}
               />}
               </>
           )} />

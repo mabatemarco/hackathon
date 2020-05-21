@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import {Link, withRouter} from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import '../css/Selector.css';
+import plus from '../images/Plus and circle@3x.png'
 
 export default function Selector(props) {
   const [which, setWhich] = useState('members')
@@ -33,9 +34,9 @@ export default function Selector(props) {
   return (
     <div className='selector'>
       <div className='selector-which'>
-        <h3 className={memberClass} onClick={memberClick}>Members</h3> 
-        <h3>|</h3> 
-        <h3 className={groupClass} onClick={groupClick}>Groups</h3> 
+        <h3 className={memberClass} onClick={memberClick}>Members</h3>
+        <h4>|</h4>
+        <h3 className={groupClass} onClick={groupClick}>Groups</h3>
       </div>
       <div className='selector-content'>
         {which == 'members' ?
@@ -53,24 +54,23 @@ export default function Selector(props) {
           ))
           :
           <>
-         { userData.groups.map(group => (
-            <Link key={group.id} to={`/groups/${group.id}`}>
-            <div className='selector-groups'>
-              <div className='selector-group-images'>
-                <img src={group.image ? group.image : 'https://www.ergcouncil.com/home/images/group-cheering-diversity.jpg'} />
-              </div>
-              <div className='selector-group-info'>
-                <h4>{group.title}</h4>
-              </div>
-            </div>
-            </Link>
-          ))}
-          <div onClick={props.randos} className='selector-groups'>
-              <div className='selector-group-images'>
-                <img src='' />
-              </div>
-              <div className='selector-group-info'>
-                <h4>Create New Group</h4>
+            {userData.groups.map(group => (
+              <div className='selector-groups-group-link'>
+              <Link key={group.id} to={`/groups/${group.id}`}>
+                <div className='selector-groups'>
+                  <div className='selector-group-images'>
+                    <img src={group.image ? group.image : 'https://www.ergcouncil.com/home/images/group-cheering-diversity.jpg'} />
+                  </div>
+                  <div className='selector-group-info'>
+                    <h4>{group.title}</h4>
+                  </div>
+                </div>
+                </Link>
+                </div>
+            ))}
+            <div onClick={props.showCreate} id='plus' className='selector-groups'>
+              <div className='selector-groups'>
+                <img className='plus' src={plus}/>
               </div>
             </div>
           </>
