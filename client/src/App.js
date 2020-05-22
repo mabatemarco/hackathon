@@ -70,7 +70,6 @@ class App extends Component {
   handleLogin = async (e) => {
     e.preventDefault();
     const currentUser = await loginUser({ 'username': this.state.authFormData.username, 'password': this.state.authFormData.password });
-    console.log(currentUser)
     const userData = await getOneUser(currentUser.id)
     this.setState({
       userData
@@ -118,12 +117,11 @@ class App extends Component {
     this.props.history.push('/')
   }
 
-  modalHandler = (oneUser) => {
-    this.setState({
-      modalShow: !this.state.modalShow,
-    })
-    console.log(oneUser)
-  }
+
+   modalHandler = (oneUser) => {
+     this.setState({
+       modalShow: !this.state.modalShow,
+     })
 
   handleSearchChange = (e) => {
     this.setState({
@@ -137,6 +135,7 @@ class App extends Component {
       newSearch: !prevState.newSearch
     }))
     this.props.history.push('/search')
+
   }
 
   render() {

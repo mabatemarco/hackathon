@@ -27,7 +27,6 @@ function CreateGroup(props) {
 
   const handleSubmit = async () => {
     const response = await createGroup(group)
-    console.log(response)
     props.history.push(`/groups/${response.id}`);
     window.location.reload(false);
   }

@@ -53,11 +53,9 @@ export default function Selector(props) {
         {which === 'members' ?
 
           groupData.members.map(member => (
-            
             <div key={member.id} className='selector-members'>
-              
               <div className='selector-member-images'>
-                <Link to={`/profile/${member.user_id}`}>
+                <Link to={`/profile/${member.user.id}`}>
                   <img src={member.user.image} />
                   </Link>
               </div>

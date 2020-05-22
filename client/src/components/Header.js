@@ -21,13 +21,13 @@ export default function Header(props) {
     <div id="header">
       {props.modalShow ? (
         <div>
-          {/*<MyVerticallyCenteredModal
+          <MyVerticallyCenteredModal
             userData={userData}
             userWeather={userWeather}
             show={props.modalShow}
             modalClosed={props.modalHandler}
           />
-          */}
+          
         </div>
       ) : (
 
