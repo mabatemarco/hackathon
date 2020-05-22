@@ -4,7 +4,6 @@ import GroupCards from './GroupCards';
 import { getAllGroups } from '../services/apihelper.js';
 import AddGroupBox from './AddGroupBox';
 import CreateGroup from './CreateGroup';
-import Selector from './Selector';
 
 class Groups extends Component {
   state = {

@@ -12,7 +12,7 @@ export default function Landing() {
         <p>Let's Get Started</p>
       </div>
       <div className="login-btn">
-      <Link to='/login'><button>Log in</button></Link>
+      <Link to='/login'><button>Login</button></Link>
       </div>
     </div>
   )

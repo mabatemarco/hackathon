@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom'
 
 function CreateGroup(props) {
   const [group, setGroup] = useState({ title: '', image: '' })
-  const [suggestions, setSuggestions] = useState([])
+  const [suggestions, setSuggestions] = useState(null)
 
 
   useEffect(() => {
