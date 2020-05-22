@@ -1,13 +1,13 @@
 .groups-layout {
   background: #F9F9FA 0% 0% no-repeat padding-box;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 1em;
   margin: 3em 2em 0 2em;
 }
 
 .group-cards-container {
-  margin: 3em auto;
+  margin: 1em auto;
 }
 
 .group-card {
@@ -15,7 +15,7 @@
   flex-direction: column;
   justify-content: space-around;
   background-color: white;
-  font-size: 2.3em;
+  font-size: 1.2em;
   border-radius: 6%;
   height: 18.75em;
   width: 9.06em;
@@ -26,7 +26,7 @@
 
 .group-card button{
   width: 67.5%;
-  border-radius: 5%;
+  border-radius: 7px;
   text-align: center;
   align-self: center;
   border: .5px solid #0000001A;
@@ -34,6 +34,18 @@
   color: white;
   font-family: 'Helvetica Neue';
   font-size: .9em;
+  padding: .2em;
+  outline: none;
+}
+
+.group-card button:hover {
+  border: 2px solid red;
+}
+
+.group-card button:active {
+  font-weight: bold;
+  box-shadow: 5px 10px 8px #888888;
+  text-shadow: 2px 2px 4px #000000; 
 }
 
 .group-card h3 {
@@ -44,7 +56,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  font-size: 2.3em;
+  font-size: 1.2em;
   border-radius: 6%;
   height: 18.75em;
   width: 9.06em;
@@ -58,10 +70,14 @@
 .new-group img{
   width: 80%;
   align-self: center;
+  cursor: pointer;
 }
 
-.new-group img:hover{
-  cursor: pointer;
+.new-group img:active {
+  border: 1px solid red;
+  border-radius: 50%;
+  box-shadow: 5px 10px 8px #888888;
+  text-shadow: 2px 2px 4px #000000; 
 }
 
 .new-group h4{
@@ -87,7 +103,7 @@
   font-family: 'Helvetica Neue';
   align-self: center;
 }
-
+/*
 .progress-circle:after{
   border: none;
   position: absolute;
@@ -110,9 +126,9 @@
   color: #53777A;
   z-index: 2;
 }
-
+*/
 /* when p>50, don't clip left half*/
-.progress-circle.over50 .left-half-clipper {
+.progress-circle .over50 .left-half-clipper {
   clip: rect(auto,auto,auto,auto);
 }
 
@@ -131,7 +147,7 @@
 }
 
 /* Progress bar filling the whole right half for values above 50% */
-.progress-circle.over50 .first50-bar {
+.progress-circle .over50 .first50-bar {
   /*Progress bar for the first 50%, filling the whole right half*/
   position: absolute; /*needed for clipping*/
   clip: rect(0, 5em, 5em, 2.5em);

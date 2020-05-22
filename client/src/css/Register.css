@@ -15,11 +15,11 @@
   margin: 0 auto;
 }
 
-.register-box h2 {
+.register-box h2{
   align-self: center;
   font-family: 'Helvetica Neue';
   font-weight: bold;
-  font-size: 3em;
+  font-size: 2em;
   color: #537898;
   height: 3vh;
   margin-top: -3%;
@@ -37,16 +37,16 @@
     border: 1px solid #ABABAB;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border-radius: 4%;
-    padding: .4em;
+    padding: .3em;
     font-family: 'Helvetica Neue';
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 1.3em;
   }
 
   .reg-btn button{
     display: block;
     background-color: #7A96C3;
-    font-size: 2em;
+    font-size: 1.3em;
     font-weight: medium;
     font-family: 'Helvetica Neue';
     color:white;
@@ -55,11 +55,18 @@
     width: 50%;
     margin: 0 auto;
     margin-top: 5%;
-    padding: .4em;
+    padding: .2em;
+    outline: none;
   }
 
   .reg-btn button:hover {
     border: 2px solid red;
+  }
+
+  .reg-btn button:active {
+    font-weight: bold;
+    box-shadow: 5px 10px 8px #888888;
+    text-shadow: 2px 2px 4px #000000; 
   }
 
   

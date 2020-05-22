@@ -4,7 +4,6 @@ import GroupCards from './GroupCards';
 import { getAllGroups } from '../services/apihelper.js';
 import AddGroupBox from './AddGroupBox';
 import CreateGroup from './CreateGroup';
-import Selector from './Selector';
 
 class Groups extends Component {
   state = {
@@ -52,11 +51,8 @@ class Groups extends Component {
             )
           })
         }
-        {/* <div className="selectors">
-          <Selector />
-        </div> */}
         {
-          this.state.displayModal ? <CreateGroup userData={this.props.userData} showCreate={this.showCreate()}/> : null
+          this.state.displayModal ? <CreateGroup userData={this.props.userData} showCreate={this.showCreate}/> : null
         }
         <AddGroupBox clicked={this.showCreate} />
       </div >
