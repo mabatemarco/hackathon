@@ -1,5 +1,12 @@
 .group-page-flex{
   display:flex;
   justify-content: space-evenly;
-  position:relative
+  position:relative;
+  background-color: #f9f9fa;
+
+}
+
+.group-page{
+  background-color: #f9f9fa;
+
 }

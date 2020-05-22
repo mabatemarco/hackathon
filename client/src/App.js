@@ -29,7 +29,7 @@ class App extends Component {
     userData: null,
     userWeather: null,
     modalShow: false,
-    
+    timeZone:null
   }
 
   componentDidMount = async () => {
@@ -38,9 +38,12 @@ class App extends Component {
       const userData = await getOneUser(currentUser.id)
       const weather = await getCityWeather('New York')
       const userWeather = weather.weather[0].icon
+      let d = new Date();
+      let timeZone = d.getTimezoneOffset();
       this.setState({
         userData,
-        userWeather
+        userWeather,
+        timeZone
       })
       if (userData.groups.length>0 && this.props.history.length<3) {
         this.props.history.push(`/groups/${userData.groups[0].id}`)
@@ -159,6 +162,7 @@ class App extends Component {
                 modalShow={this.state.modalShow}
                 modalHandler={this.modalHandler}
                 oneUser={this.state.oneUser}
+                timeZone={this.state.timeZone}
               />}
               </>
           )} />
