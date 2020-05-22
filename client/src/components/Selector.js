@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link, withRouter } from 'react-router-dom'
+import MyVerticallyCenteredModal from "../components/ProfileModal";
 import '../css/Selector.css';
 import plus from '../images/Plus and circle@3x.png'
 
@@ -9,11 +10,14 @@ export default function Selector(props) {
   const [userData, setUserData] = useState(props.userData)
   const [memberClass, setMemberClass] = useState('bold')
   const [groupClass, setGroupClass] = useState('')
+  
 
   useEffect(() => {
     setGroupData(props.groupData)
     setUserData(props.userData)
   }, [props])
+
+ 
 
   const handleSelect = (e) => {
     setWhich(e.target.value)
@@ -39,12 +43,31 @@ export default function Selector(props) {
         <h3 className={groupClass} onClick={groupClick}>Groups</h3>
       </div>
       <div className='selector-content'>
-        {which == 'members' ?
+        {which === 'members' ?
 
           groupData.members.map(member => (
+            
             <div key={member.id} className='selector-members'>
+              
               <div className='selector-member-images'>
-                <img src={member.user.image} />
+             
+                
+              {/*props.modalShow ? (
+                <div>
+                    <MyVerticallyCenteredModal
+                      id={member.id}
+                    userData={member.user}
+                    show={props.modalShow}
+                    modalClosed={props.modalHandler}
+                    oneUser={props.oneUser}
+                  />
+               
+                </div>):
+                <></>
+              */}
+                <Link to={`/profile/${member.id}`}>
+                  <img src={member.user.image} />
+                  </Link>
               </div>
               <div className='selector-member-info'>
                 <h4>{member.user.first_name} {member.user.last_name}</h4>

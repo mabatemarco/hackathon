@@ -8,36 +8,24 @@ import "../css/Header.css";
 
 export default function Header(props) {
   const [userData, setUserData] = useState(props);
-  const [modalShow, setModalShow] = React.useState(false);
   const [userWeather, setUserWeather] = useState(props);
 
   useEffect(() => {
     setUserData(props.userData);
-    setUserWeather(props.userWeather);
-    console.log(userData);
-    console.log(userWeather);
+    setUserWeather(props.userWeather);  
   });
-
-  let modalHandler = (e) => {
-    e.preventDefault();
-    setModalShow(
-       !modalShow
-    )
-  }
-
-
 
   return (
     <div id="header">
-      {modalShow ? (
+      {props.modalShow ? (
         <div>
-          <MyVerticallyCenteredModal
+          {/*<MyVerticallyCenteredModal
             userData={userData}
             userWeather={userWeather}
-            show={modalShow}
-            modalClosed={modalHandler}
+            show={props.modalShow}
+            modalClosed={props.modalHandler}
           />
-         
+          */}
         </div>
       ) : (
        
@@ -46,19 +34,19 @@ export default function Header(props) {
         <div id="user-section">
           <img
             id="header-image"
-            src="https://i.imgur.com/vndsQuF.jpg"
+            src={userData.image}
             alt="users photo"
           />
           <h1 id="user-title">{userData.username}</h1>
           <DropdownButton id="dropdown-basic-button" title="Menu">
-            <Dropdown.Item variant="primary" onClick={() => setModalShow(true)} >
+            <Dropdown.Item variant="primary" onClick={(e) => props.modalHandler(e)} >
               Profile
             </Dropdown.Item>
 
             <Dropdown.Item href="#/action-2">My groups</Dropdown.Item>
             <Dropdown.Item href="#/action-3">Messages</Dropdown.Item>
             <Dropdown.Item href="#/action-4">Settings</Dropdown.Item>
-            <Dropdown.Item href="#/action-5" onClick={props.handleLogout}>
+            <Dropdown.Item  variant="primary" onClick={(e) => props.handleLogout()}>
               Sign out
             </Dropdown.Item>
           </DropdownButton>
