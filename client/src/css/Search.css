@@ -41,6 +41,8 @@
   width:30%;
   color:black;
   text-decoration: none;
+  margin-top:3em;
+  height:160px;
 }
 
 .search-results-person{
@@ -50,7 +52,6 @@
   background-color: #ffffff;
   display:flex;
   justify-content: left;
-  margin-top:3em;
   height:160px
 }
 

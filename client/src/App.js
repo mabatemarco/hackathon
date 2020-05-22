@@ -134,7 +134,7 @@ class App extends Component {
   handleSearchSubmit = (e) => {
     e.preventDefault()
     this.setState(prevState => ({
-      newSearch:!prevState.newSearch
+      newSearch: !prevState.newSearch
     }))
     this.props.history.push('/search')
   }
@@ -179,11 +179,14 @@ class App extends Component {
             />
           )} />
           <Route exact path='/groups' render={() => (
-            <Groups
-              currentUser={this.state.currentUser}
-              userData={this.state.userData}
-              getUserData={this.getUserData}
-            />
+            <>
+              {this.state.userData &&
+                <Groups
+                  currentUser={this.state.currentUser}
+                  userData={this.state.userData}
+                  getUserData={this.getUserData}
+                />}
+            </>
           )} />
           <Route exact path='/groups/:id' render={(props) => (
             <>
@@ -212,8 +215,8 @@ class App extends Component {
                   allUsers={this.state.allUsers}
                   handleSearchChange={this.handleSearchChange}
                   handleSearchSubmit={this.handleSearchSubmit}
-                search={this.state.search}
-                newSearch={this.state.newSearch}
+                  search={this.state.search}
+                  newSearch={this.state.newSearch}
                 />}
             </>
           )} />

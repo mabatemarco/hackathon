@@ -15,9 +15,15 @@ class Groups extends Component {
   // making an axios call to DB to get allGroupsData then assigning the value in state
   componentDidMount = async () => {
     const groupsData = await getAllGroups();
+    let userGroups = this.props.userData.groups.map(group => (
+      group.id
+    ))
+    let selectedGroups = groupsData.filter(group => {
+      return !userGroups.includes(group.id)
+    })
     let allGroupsData=[];
-    for (let i = 0; i < 5; i++){
-      allGroupsData.push(groupsData[i])
+    for (let i = 0; i < Math.min(5,selectedGroups.length); i++){
+      allGroupsData.push(selectedGroups[i])
     }
     this.setState({
       allGroupsData

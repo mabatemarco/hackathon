@@ -58,14 +58,21 @@ export default function Chat(props) {
       <div className='chat-events'>
         <div id='chat' className='chat-window'>
           {groupData.posts.length>0 ? groupData.posts.map(post => {
-            let showDate = months[parseInt(post.created_at.slice(5, 7))] + ' ' + post.created_at.slice(8, 10)
+            let month = months[parseInt(post.created_at.slice(5, 7))]
+            let day = post.created_at.slice(8, 10)
             let amPm = 'AM'
-            let hour = post.created_at.slice(11, 13)-(props.timeZone/60)
+            let min = post.created_at.slice(14, 16)
+            let hour = post.created_at.slice(11, 13) - (props.timeZone / 60)
+            if (hour < 0) {
+              hour = 24 + hour - 1;
+              min = 60 - min;
+              day-=1
+            }
             if (hour > 12) {
               hour -= 12;
               amPm = 'PM'
             }
-            let min = post.created_at.slice(14, 16)
+            let showDate= `${month} ${day}`
 
             return (
               <div className='chat-post'>

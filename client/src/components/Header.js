@@ -44,9 +44,10 @@ export default function Header(props) {
                 <Dropdown.Item variant="primary" onClick={(e) => props.modalHandler(e)} >
                   Profile
             </Dropdown.Item>
-                <Link to={`/groups/${userData.groups[0].id}`}>
-                  <Dropdown.Item href="#/action-2">My groups</Dropdown.Item>
-                </Link>
+                {userData.groups.length > 0 &&
+                  <Link to={`/groups/${userData.groups[0].id}`}>
+                    <Dropdown.Item href="#/action-2">My groups</Dropdown.Item>
+                  </Link>}
                 <Dropdown.Item href="#/action-3">Messages</Dropdown.Item>
                 <Dropdown.Item href="#/action-4">Settings</Dropdown.Item>
                 <Dropdown.Item variant="primary" onClick={(e) => props.handleLogout()}>
