@@ -87,7 +87,7 @@ class App extends Component {
     this.setState({
       currentUser
     })
-    this.props.history.push("/interests");
+    this.props.history.push("/groups");
   }
 
   handleChange = e => {
@@ -118,111 +118,112 @@ class App extends Component {
   }
 
 
-   modalHandler = (oneUser) => {
-     this.setState({
-       modalShow: !this.state.modalShow,
-     })
-
-  handleSearchChange = (e) => {
+  modalHandler = (oneUser) => {
     this.setState({
-      search: e.target.value
+      modalShow: !this.state.modalShow,
     })
   }
 
-  handleSearchSubmit = (e) => {
-    e.preventDefault()
-    this.setState(prevState => ({
-      newSearch: !prevState.newSearch
-    }))
-    this.props.history.push('/search')
+    handleSearchChange = (e) => {
+      this.setState({
+        search: e.target.value
+      })
+    }
 
+    handleSearchSubmit = (e) => {
+      e.preventDefault()
+      this.setState(prevState => ({
+        newSearch: !prevState.newSearch
+      }))
+      this.props.history.push('/search')
+
+    }
+
+    render() {
+      return (
+        <div className="App">
+
+          <Header
+            handleLogout={this.handleLogout}
+            currentUser={this.state.currentUser}
+            userData={this.state.userData}
+            userWeather={this.state.userWeather}
+            modalHandler={this.modalHandler}
+            modalShow={this.state.modalShow}
+            handleSearchChange={this.handleSearchChange}
+            handleSearchSubmit={this.handleSearchSubmit}
+          />
+
+          <Switch>
+            <Route exact path='/' render={() => (<Landing />)} />
+            <Route exact path='/login' render={() =>
+              (<Login
+                handleChange={this.handleChange}
+                handleLogin={this.handleLogin}
+                currentUser={this.state.currentUser}
+                authFormData={this.state.authFormData}
+              />)} />
+            <Route exact path='/register' render={() => (
+              <Register
+                handleChange={this.handleChange}
+                currentUser={this.state.currentUser}
+                authFormData={this.state.authFormData}
+                handleRegister={this.handleRegister}
+              />)} />
+            <Route exact path='/profile/:id' render={(props) => (
+              <Profile
+                currentUser={this.state.currentUser}
+                userData={this.state.userData}
+                handleUpdate={this.hanldeUpdate}
+                id={props.match.params.id}
+              />
+            )} />
+            <Route exact path='/groups' render={() => (
+              <>
+                {this.state.userData &&
+                  <Groups
+                    currentUser={this.state.currentUser}
+                    userData={this.state.userData}
+                    getUserData={this.getUserData}
+                  />}
+              </>
+            )} />
+            <Route exact path='/groups/:id' render={(props) => (
+              <>
+                {this.state.userData &&
+                  <Group
+                    currentUser={this.state.currentUser}
+                    userData={this.state.userData}
+                    id={props.match.params.id}
+                    modalShow={this.state.modalShow}
+                    modalHandler={this.modalHandler}
+                    oneUser={this.state.oneUser}
+                    timeZone={this.state.timeZone}
+                  />}
+              </>
+            )} />
+            <Route exact path='/interests' render={(props) => (
+              <Interests
+                currentUser={this.state.currentUser}
+                userData={this.state.userData}
+              />
+            )} />
+            <Route exact path='/search' render={() => (
+              <>
+                {this.state.allUsers &&
+                  <Search
+                    allUsers={this.state.allUsers}
+                    handleSearchChange={this.handleSearchChange}
+                    handleSearchSubmit={this.handleSearchSubmit}
+                    search={this.state.search}
+                    newSearch={this.state.newSearch}
+                  />}
+              </>
+            )} />
+          </Switch>
+        </div>
+      );
+    }
   }
 
-  render() {
-    return (
-      <div className="App">
-
-        <Header
-          handleLogout={this.handleLogout}
-          currentUser={this.state.currentUser}
-          userData={this.state.userData}
-          userWeather={this.state.userWeather}
-          modalHandler={this.modalHandler}
-          modalShow={this.state.modalShow}
-          handleSearchChange={this.handleSearchChange}
-          handleSearchSubmit={this.handleSearchSubmit}
-        />
-
-        <Switch>
-          <Route exact path='/' render={() => (<Landing />)} />
-          <Route exact path='/login' render={() =>
-            (<Login
-              handleChange={this.handleChange}
-              handleLogin={this.handleLogin}
-              currentUser={this.state.currentUser}
-              authFormData={this.state.authFormData}
-            />)} />
-          <Route exact path='/register' render={() => (
-            <Register
-              handleChange={this.handleChange}
-              currentUser={this.state.currentUser}
-              authFormData={this.state.authFormData}
-              handleRegister={this.handleRegister}
-            />)} />
-          <Route exact path='/profile/:id' render={(props) => (
-            <Profile
-              currentUser={this.state.currentUser}
-              userData={this.state.userData}
-              handleUpdate={this.hanldeUpdate}
-              id={props.match.params.id}
-            />
-          )} />
-          <Route exact path='/groups' render={() => (
-            <>
-              {this.state.userData &&
-                <Groups
-                  currentUser={this.state.currentUser}
-                  userData={this.state.userData}
-                  getUserData={this.getUserData}
-                />}
-            </>
-          )} />
-          <Route exact path='/groups/:id' render={(props) => (
-            <>
-              {this.state.userData &&
-                <Group
-                  currentUser={this.state.currentUser}
-                  userData={this.state.userData}
-                  id={props.match.params.id}
-                  modalShow={this.state.modalShow}
-                  modalHandler={this.modalHandler}
-                  oneUser={this.state.oneUser}
-                  timeZone={this.state.timeZone}
-                />}
-            </>
-          )} />
-          <Route exact path='/interests' render={(props) => (
-            <Interests
-              currentUser={this.state.currentUser}
-              userData={this.state.userData}
-            />
-          )} />
-          <Route exact path='/search' render={() => (
-            <>
-              {this.state.allUsers &&
-                <Search
-                  allUsers={this.state.allUsers}
-                  handleSearchChange={this.handleSearchChange}
-                  handleSearchSubmit={this.handleSearchSubmit}
-                  search={this.state.search}
-                  newSearch={this.state.newSearch}
-                />}
-            </>
-          )} />
-        </Switch>
-      </div>
-    );
-  }
-}
-
-export default withRouter(App);
+  export default withRouter(App);

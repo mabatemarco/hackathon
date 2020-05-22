@@ -1,12 +1,15 @@
 .groups-layout {
   background: #F9F9FA 0% 0% no-repeat padding-box;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1em;
+  width: 60%;
+  margin:0 auto
 }
 
 .group-cards-container {
   margin: 1em auto;
+  width:60%
 }
 
 .group-card {

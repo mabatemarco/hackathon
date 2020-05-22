@@ -78,6 +78,11 @@
   height:60px;
 }
 
+.selector-groups-group-link a{
+  text-decoration: none;
+  color:black
+}
+
 .selector-group-images{
   width:30%;
   display:flex;
