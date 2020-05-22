@@ -4,7 +4,7 @@
 ## A Digital Workspace and Playground
 
 
-#### The goal was to create a platform for companies to host their virtual business meetings while also allowing some space for social exchange between employees whom share similar interests. 
+#### The goal was to create a platform for companies to host their virtual business meetings while also allowing some space for (virtual) social exchange between employees whom share similar interests. 
 
 ## Midnight Geniuses Crew
 * **Erin Rowland** - UX Designer
@@ -33,12 +33,12 @@ rails db:create
 rails db:migrate
 ```
 
-Then move into the **Client** Directory, then run this command: 
+After, move into the **Client Directory**, then run this command: 
 ```
 npm i
 ```
 
-Once all that is completed, move into the root directory and run the server by running this command: 
+Once that is completed, move into the root directory and run the server by running this command: 
 
 ```
 rails s
