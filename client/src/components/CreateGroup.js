@@ -9,7 +9,7 @@ function CreateGroup(props) {
 
 
   useEffect(() => {
-    let arr = [];
+    let arr = []
     if (props.userData.groups.length > 0 && props.userData.groups[0].members.length > 2) {
       for (let i = 0; i < 3; i++) {
         let firstRand = Math.floor(Math.random() * props.userData.groups.length)

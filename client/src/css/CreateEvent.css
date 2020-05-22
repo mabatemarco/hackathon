@@ -1,0 +1,86 @@
+.create-event{
+  position:absolute;
+  z-index: 2;
+  width:50%;
+  left:25%;
+  background-color: #ffffff;
+  top:12%;
+  border: 1px solid #7a96c3
+}
+
+.create-event h4{
+  font-family: helvetica;
+  margin: .5em 0
+}
+
+.create-event span{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.create-event-header{
+  background-color: #7a96c3;
+  padding:1em;
+  border: .5px solid #707070
+}
+
+.create-event-header h2{
+  margin:0
+}
+
+.create-event-people-people{
+  display:flex;
+  justify-content: space-evenly;
+  margin-bottom:1em
+}
+
+.create-event-people-person{
+  position:relative
+}
+
+.create-event-people-person p{
+  position:absolute;
+  top:0;
+  right:0
+}
+
+.create-event .add-button{
+  width: 100px;
+  border-radius: 3px;
+  border: solid 0.5px #707070;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.create-event-set{
+  width:90%;
+  margin:auto;
+  text-align:left
+}
+
+.create-event-set input{
+  width:100%;
+  padding:10px;
+  border: 1px solid #7a96c3
+}
+
+.create-event button{
+  padding:10px;
+  border: .3px solid #ababab;
+  background-color: #7a96c3;
+  width: 152.3px;
+  margin:1em 0;
+  cursor: pointer;
+}
+
+.create-event-set .create-event-datetime{
+  display:flex;
+  justify-content: space-between;
+}
+
+.create-event-set .create-event-datetime input{
+  width: 42%
+}

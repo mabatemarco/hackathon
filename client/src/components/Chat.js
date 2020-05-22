@@ -4,6 +4,7 @@ import Events from './Events'
 import { createPost } from '../services/apihelper'
 import { animateScroll } from 'react-scroll';
 import icons from '../images/icons.png'
+import textBar from '../images/textbar.png'
 
 
 export default function Chat(props) {
@@ -57,14 +58,21 @@ export default function Chat(props) {
       <div className='chat-events'>
         <div id='chat' className='chat-window'>
           {groupData.posts.length>0 ? groupData.posts.map(post => {
-            let showDate = months[parseInt(post.created_at.slice(5, 7))] + ' ' + post.created_at.slice(8, 10)
+            let month = months[parseInt(post.created_at.slice(5, 7))]
+            let day = post.created_at.slice(8, 10)
             let amPm = 'AM'
-            let hour = post.created_at.slice(11, 13)-(props.timeZone/60)
+            let min = post.created_at.slice(14, 16)
+            let hour = post.created_at.slice(11, 13) - (props.timeZone / 60)
+            if (hour < 0) {
+              hour = 24 + hour - 1;
+              min = 60 - min;
+              day-=1
+            }
             if (hour > 12) {
               hour -= 12;
               amPm = 'PM'
             }
-            let min = post.created_at.slice(14, 16)
+            let showDate= `${month} ${day}`
 
             return (
               <div className='chat-post'>
@@ -73,7 +81,7 @@ export default function Chat(props) {
                     <img src={post.user.image ? post.user.image : 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/220px-User_icon_2.svg.png'} />
                   </div>
                   <div className='chat-post-post'>
-                    <h6>{post.user.first_name} {post.user.last_name} ({post.user.title})</h6>
+                    <h6>{post.user.first_name} {post.user.last_name}<span> ({post.user.title})</span></h6>
                     <p>{hour}:{min}{amPm} - {showDate}</p>
                   </div>
                 </div>
@@ -91,6 +99,7 @@ export default function Chat(props) {
         <Events
           groupData={groupData}
           timeZone={props.timeZone}
+          showEventCreate={props.showEventCreate}
           />
       </div>
 
@@ -99,6 +108,7 @@ export default function Chat(props) {
         <form onSubmit={handleSubmit}>
           <input value={currentPost} placeholder='Say Something!' onChange={handleChange} />
         </form>
+          <img src={textBar}/>
       </div>
     </div>
   )
