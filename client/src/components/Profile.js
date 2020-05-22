@@ -22,7 +22,6 @@ export default class Profile extends Component {
       userData,
       userWeather
     })
-    console.log(this.state.userData)
   }
 
 
@@ -37,11 +36,11 @@ export default class Profile extends Component {
             <h1 id='profile-user-title'>{this.state.userData.title}</h1>
             </div>
           <div id='user-profile-image'>
-          <div class="progress-circle p54" >
-  <span><img id="user-image" src='https://reason.org/wp-content/uploads/2018/01/guybentley.jpg' alt="" /></span>
-  <div class="left-half-clipper">
-    <div id='first-bar' class="first50-bar"></div>
-    <div id='value-bar' class="value-bar"></div>
+          <div class="profile-progress-circle p54" >
+  <span><img src={this.state.userData.image} alt="" /></span>
+  <div class="profile-left-half-clipper">
+    <div id='first-bar' class="profile-first50-bar"></div>
+    <div id='value-bar' class="profile-value-bar"></div>
   </div>
             </div>
             </div>

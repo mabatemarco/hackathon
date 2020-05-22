@@ -35,6 +35,7 @@ div.dropdown {
 }
 
 div.dropdown-menu.show {
+  z-index: 2;
   background-color: beige;
   display: flex;
   flex-direction: column;

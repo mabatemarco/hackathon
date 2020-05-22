@@ -32,7 +32,6 @@ export default function Chat(props) {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const newPost = await createPost(groupData.id, currentPost)
-    console.log(newPost)
     let newPosts = [...groupData.posts, newPost]
     setCurrentPost('')
     setGroupData({

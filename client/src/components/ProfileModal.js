@@ -14,19 +14,15 @@ class MyVerticallyCenteredModal extends Component {
       oneUser: props.oneUser,
       userData: props.userData,
       userWeather: props.userWeather,
-      oneUser: null,
-      selectedUserWeather: null,
     }
   }
   componentDidMount = async () => {
     const weather = await getCityWeather('new york')
-    const selectedUserWeather = weather.weather[0].icon
+    const userWeather = weather.weather[0].icon
     this.setState({
-      selectedUserWeather
+      userWeather
     })
-    console.log(this.state.userData)
-    console.log(this.state.oneUser)
-    console.log(this.state.id)
+   
   }
   
 
@@ -40,7 +36,8 @@ class MyVerticallyCenteredModal extends Component {
       }}>
         {this.state.userData.id ?
           <div>
-          <Modal.Header>
+            <Modal.Header>
+            <img id='pop-up-hero-image' src='https://cdn.zeplin.io/5ec5534c53feee488e048301/assets/720E56FF-D5F0-4CBD-8CE5-08A4F4B40325.png'/>
             <div id="profile-image">
               <div class="progress-circle p45">
                 <span>
@@ -66,8 +63,9 @@ class MyVerticallyCenteredModal extends Component {
                 <p id='email'>{this.state.userData.email}</p>
                 <p id='phone-number'>(123)456-7891</p>
               </div>
-              <div id="icon-column">
-                <img src={`http://openweathermap.org/img/wn/${this.state.userWeather}@2x.png`} />
+                <div id="icon-column">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path d="M12 9.185l7 6.514v6.301h-3v-5h-8v5h-3v-6.301l7-6.514zm0-2.732l-9 8.375v9.172h7v-5h4v5h7v-9.172l-9-8.375zm12 5.695l-12-11.148-12 11.133 1.361 1.465 10.639-9.868 10.639 9.883 1.361-1.465z"/></svg>
+                <img id='pop-up-weather-icon'src={`http://openweathermap.org/img/wn/${this.state.userWeather}@2x.png`} />
               </div>
             </div>
             <div id="pop-up-profile-character-area">
@@ -87,9 +85,15 @@ class MyVerticallyCenteredModal extends Component {
                 </div>
               </div>
               <h1 id='interest-title'>Interests</h1>
-              <div id='interest-area'>
-              
-              </div>
+                <div id='interest-area'>
+                <h1 class='pop-up-interest-box'>Movies</h1>
+                <h1 class='pop-up-interest-box'>Rock Climbing</h1>
+                <h1 class='pop-up-interest-box'>Volunteering</h1>
+                <h1 class='pop-up-interest-box'>Gardening</h1>
+                <h1 class='pop-up-interest-box'>Chess</h1>
+                <h1 class='pop-up-interest-box'>Magic</h1>
+                </div>
+                <button id='pop-up-message-button'>Message</button>
             </div>
           </Modal.Body>
           <Modal.Footer>

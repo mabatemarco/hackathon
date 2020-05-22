@@ -1,8 +1,8 @@
 /* pop up profile */
 #pop-up-profile {
-  width: 40vw;
+  width: 30vw;
   height: 80vh;
-  border: 2px solid black;
+  border: .5px solid black;
   margin-left: 10vh;
   position: absolute;
   top: 10vh;
@@ -14,15 +14,28 @@
 
 div.modal-header {
   height: 20vh;
-  background-color: ivory;
   display: flex;
   flex-direction: row;
 }
 
+#pop-up-hero-image {
+  width: 30vw;
+}
+
 #profile-image {
  position: relative;
- top: 11vh;
- left: -1.4vw
+ top: 10vh;
+ left: -31.4vw
+}
+
+#pop-up-profile .progress-circle span img {
+  position:absolute;
+  left: 9.4px;
+  top: 7px;
+  height:4.27em;
+  width:4.27em;
+  border-radius: 100%;
+  object-fit: cover;
 }
 
 #profile-title-bar {
@@ -31,7 +44,7 @@ div.modal-header {
   width: 40vw;
   position: relative;
   top: 6vh;
-  z-index: 5;
+  z-index: 15;
 }
 
 #profile-title-info {
@@ -39,20 +52,20 @@ div.modal-header {
   display: flex;
   flex-direction: row;
   position: relative;
-  z-index: 2;
+  z-index: 16;
 }
 
 #username {
   font-size: 2em;
 position: absolute;
 top: -1.8vh;
-left: -3vw;
+left: -32vw;
 }
 
 #job-title {
   position: absolute;
-  top: 1vh;
-  left: 12vw;
+  top: 3vh;
+  left: -22vw;
   font-size: 0.8em;
 }
 
@@ -61,17 +74,27 @@ left: -3vw;
 }
 
 #email {
-  margin: 0px;
+  position: absolute;
+  top: 130px;
+  left: 110px;
 }
 
 #phone-number {
-  margin: 0vh 5vw 0vh 0vw;
+  margin: 1.2vh 5vw 0vh 0vw;
 }
 
 #icon-column {
   position: absolute;
-  top: 18vh;
-  left: 32vw;
+  top: 20vh;
+  left: 21vw;
+  display: flex;
+  flex-direction: row;
+}
+
+#pop-up-weather-icon {
+  position: absolute;
+  top: -3vh;
+  left: 3vw;
 }
 
 #phone-column h4 {
@@ -93,7 +116,7 @@ left: -3vw;
 
 #groups-title {
   position: absolute;
-  left: 1px;
+  left: 1vw;
   font-weight: lighter;
 }
 
@@ -102,7 +125,7 @@ left: -3vw;
   flex-direction: row;
   padding: 0vh 7vw 0vh 0vw;
   position: absolute;
-  top: 41vh;
+  top: 37vh;
 }
 
 .group-column {
@@ -117,9 +140,39 @@ left: -3vw;
 
 #interest-title {
   position: relative;
-  top: 28vh;
-  left: -16vw;
+  top: 26vh;
+  left: -10vw;
   font-weight: lighter;
+}
+
+#interest-area {
+  position: absolute;
+  top: 60vh;
+  left:2vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: .1fr 0.1fr;
+  gap: 1px 20px;
+  grid-template-areas: ". . . ." ". . . .";
+}
+
+.pop-up-interest-box {
+  width: 5.5vw;
+  border: 2px solid gray;
+  font-size: .5em;
+  font-weight: 200;
+}
+
+.pop-up-interest-box:hover {
+  border: 2px solid green;
+}
+
+#pop-up-message-button {
+  width: 8.5vw;
+background-color: rgb(116, 150, 199);
+position: absolute;
+top: 75vh;
+left: 10vw;
 }
 
 div.modal-footer {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../css/CreateGroup.css';
 import { createGroup } from '../services/apihelper';
 import { withRouter } from 'react-router-dom'
@@ -25,7 +25,6 @@ function CreateGroup(props) {
 
   const handleSubmit = async () => {
     const response = await createGroup(group)
-    console.log(response)
     props.history.push(`/groups/${response.id}`);
     window.location.reload(false);
   }

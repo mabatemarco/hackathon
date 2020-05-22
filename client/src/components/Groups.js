@@ -21,7 +21,6 @@ class Groups extends Component {
   }
 
   clickHandler = () => {
-    console.log('clicked');
     const displayModal = !this.state.displayModal;
     this.setState({ displayModal: displayModal })
   }

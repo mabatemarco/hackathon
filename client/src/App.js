@@ -56,7 +56,6 @@ class App extends Component {
   handleLogin = async (e) => {
     e.preventDefault();
     const currentUser = await loginUser({ 'username': this.state.authFormData.username, 'password': this.state.authFormData.password });
-    console.log(currentUser)
     const userData = await getOneUser(currentUser.id)
     this.setState({
       userData
@@ -108,7 +107,6 @@ class App extends Component {
      this.setState({
        modalShow: !this.state.modalShow,
      })
-     console.log(oneUser)
   }
 
   render() {
