@@ -4,6 +4,7 @@ import Events from './Events'
 import { createPost } from '../services/apihelper'
 import { animateScroll } from 'react-scroll';
 import icons from '../images/icons.png'
+import textBar from '../images/textbar.png'
 
 
 export default function Chat(props) {
@@ -73,7 +74,7 @@ export default function Chat(props) {
                     <img src={post.user.image ? post.user.image : 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/220px-User_icon_2.svg.png'} />
                   </div>
                   <div className='chat-post-post'>
-                    <h6>{post.user.first_name} {post.user.last_name} ({post.user.title})</h6>
+                    <h6>{post.user.first_name} {post.user.last_name}<span> ({post.user.title})</span></h6>
                     <p>{hour}:{min}{amPm} - {showDate}</p>
                   </div>
                 </div>
@@ -91,6 +92,7 @@ export default function Chat(props) {
         <Events
           groupData={groupData}
           timeZone={props.timeZone}
+          showEventCreate={props.showEventCreate}
           />
       </div>
 
@@ -99,6 +101,7 @@ export default function Chat(props) {
         <form onSubmit={handleSubmit}>
           <input value={currentPost} placeholder='Say Something!' onChange={handleChange} />
         </form>
+          <img src={textBar}/>
       </div>
     </div>
   )

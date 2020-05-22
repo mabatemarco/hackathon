@@ -3,6 +3,13 @@ import { Link, withRouter } from 'react-router-dom'
 import MyVerticallyCenteredModal from "../components/ProfileModal";
 import '../css/Selector.css';
 import plus from '../images/Plus and circle@3x.png'
+import home from '../images/home.png'
+import beach from '../images/beach.png'
+import moon from '../images/moon.png'
+import rain from '../images/rain.png'
+import snow from '../images/snow.png'
+import sun from '../images/sun.png'
+
 
 export default function Selector(props) {
   const [which, setWhich] = useState('members')
@@ -57,6 +64,10 @@ export default function Selector(props) {
               <div className='selector-member-info'>
                 <h4>{member.user.first_name} {member.user.last_name}</h4>
                 <p>{member.user.title}</p>
+                <div className='selector-member-info-image'>
+                  <img src={Math.round(Math.random()) ? home : beach} />
+                  <img src={Math.round(Math.random()) ? sun : rain} />
+                  </div>
               </div>
             </div>
           ))

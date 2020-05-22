@@ -15,8 +15,12 @@ class Groups extends Component {
   // making an axios call to DB to get allGroupsData then assigning the value in state
   componentDidMount = async () => {
     const groupsData = await getAllGroups();
+    let allGroupsData=[];
+    for (let i = 0; i < 5; i++){
+      allGroupsData.push(groupsData[i])
+    }
     this.setState({
-      allGroupsData: groupsData
+      allGroupsData
     })
   }
 
@@ -47,16 +51,14 @@ class Groups extends Component {
                   description={onegroup.description}
                   imageURL={onegroup.image}
                   private={onegroup.private}
+                  getUserData={this.props.getUserData}
                 />
               </div>
             )
           })
         }
-        {/* <div className="selectors">
-          <Selector />
-        </div> */}
         {
-          this.state.displayModal ? <CreateGroup userData={this.props.userData} showCreate={this.showCreate()}/> : null
+          this.state.displayModal ? <CreateGroup userData={this.props.userData} showCreate={this.showCreate}/> : null
         }
         <AddGroupBox clicked={this.showCreate} />
       </div >

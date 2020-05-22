@@ -5,11 +5,13 @@ import { getOneGroup } from '../services/apihelper.js'
 import Selector from './Selector.js'
 import Chat from './Chat.js'
 import CreateGroup from './CreateGroup'
+import CreateEvent from './CreateEvent'
 
 export default function Group(props) {
   const [groupData, setGroupData] = useState(null)
   const [id, setId] = useState(props.id)
   const [create, setCreate] = useState(false)
+  const [createEvent, setCreateEvent] = useState(false)
 
 
   useEffect(() => {
@@ -24,6 +26,14 @@ export default function Group(props) {
     setCreate(!create)
   }
 
+  const showEventCreate = () => {
+    setCreateEvent(!createEvent)
+  }
+
+  const newEvent = (newOne) => {
+    setGroupData({...groupData, events:[...groupData.events,newOne]})
+  }
+
   return (
     <>
       {groupData && props.userData ?
@@ -33,6 +43,13 @@ export default function Group(props) {
             userData={props.userData}
             showCreate={showCreate}
             />}
+          {createEvent&&
+            <CreateEvent
+            showEventCreate={showEventCreate}
+            id={id}
+            newEvent={newEvent}
+            />
+          }
           <div className='group-page-flex'>
             <Selector
               setId={setId}
@@ -46,6 +63,7 @@ export default function Group(props) {
             <Chat
               groupData={groupData}
               timeZone={props.timeZone}
+              showEventCreate={showEventCreate}
             />
           </div>
         </div>

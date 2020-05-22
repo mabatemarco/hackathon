@@ -14,7 +14,7 @@ export default function Events(props) {
   return (
     <div className='events-container'>
       <div className='events'>
-        <h4>Upcoming Events</h4>
+        <h4 className='events-h4'>Upcoming Events</h4>
         {sortedEvents.length > 0 ? sortedEvents.map(event => {
           let showDate = months[parseInt(event.date.slice(5, 7))] + ' ' + event.date.slice(8, 10)
           let amPm = 'AM'
@@ -38,7 +38,7 @@ export default function Events(props) {
         }
       </div>
       <div id="event-add" className='chat-event-event'>
-        <img src={plus} />
+        <img onClick={props.showEventCreate} src={plus} />
       </div>
     </div >
   )

@@ -1,8 +1,15 @@
 import React, { useEffect } from 'react'; // removed useState and useEffect Hooks 
 import { withRouter } from 'react-router-dom';
+import {addUserToGroup} from '../services/apihelper'
 
 function GroupCards(props) {
   let rand = Math.floor(Math.random() * 25) + 70;
+
+  const addUser = async (groupId) => {
+    const response = await addUserToGroup(groupId)
+    props.getUserData()
+    props.history.push(`/groups/${groupId}`)
+  }
 
   return (
 
@@ -15,7 +22,7 @@ function GroupCards(props) {
           <div class="value-bar"></div>
         </div>
       </div>
-      <button>Join</button>
+      <button onClick={()=>{addUser(props.id)}}>Join</button>
     </div>
   )
 }

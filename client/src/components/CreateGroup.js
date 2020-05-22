@@ -10,12 +10,14 @@ function CreateGroup(props) {
 
   useEffect(() => {
     let arr = []
-    for (let i = 0; i < 3; i++) {
-      let firstRand = Math.floor(Math.random() * props.userData.groups.length)
-      let secondRand = Math.floor(Math.random() * props.userData.groups[firstRand].members.length)
-      arr.push({ image: props.userData.groups[firstRand].members[secondRand].user.image, rand: Math.floor(Math.random() * 15) + 80 })
+    if (props.userData.groups.length > 0 && props.userData.groups[0].members.length > 2) {
+      for (let i = 0; i < 3; i++) {
+        let firstRand = Math.floor(Math.random() * props.userData.groups.length)
+        let secondRand = Math.floor(Math.random() * props.userData.groups[firstRand].members.length)
+        arr.push({ image: props.userData.groups[firstRand].members[secondRand].user.image, rand: Math.floor(Math.random() * 15) + 80 })
+      }
+      setSuggestions(arr)
     }
-    setSuggestions(arr)
   }, [])
 
   const handleChange = (e) => {
@@ -49,25 +51,27 @@ function CreateGroup(props) {
           </div>
         </form>
       </div>
-      <div className='create-group-people'>
-        <h3>We found some people who might be interested</h3>
-        <div className='create-group-people-people'>
-          {suggestions.map(person => {
-            return (
-              <div className='create-group-people-person'>
-                <div className={`progress-circle p${person.rand}`}>
-                  <span><img src={person.image} alt="" /></span>
-                  <div className="left-half-clipper">
-                    <div className="first50-bar"></div>
-                    <div className="value-bar"></div>
+      {suggestions &&
+        <div className='create-group-people'>
+          <h3>We found some people who might be interested</h3>
+          <div className='create-group-people-people'>
+            {suggestions.map(person => {
+              return (
+                <div className='create-group-people-person'>
+                  <div className={`progress-circle p${person.rand}`}>
+                    <span><img src={person.image} alt="" /></span>
+                    <div className="left-half-clipper">
+                      <div className="first50-bar"></div>
+                      <div className="value-bar"></div>
+                    </div>
                   </div>
-                </div>
-                <p className='create-group-people-person-percent'>{person.rand}%</p>
-                <button className='add-button'>Add to Group</button>
-              </div>)
-          })}
+                  <p className='create-group-people-person-percent'>{person.rand}%</p>
+                  <button className='add-button'>Add to Group</button>
+                </div>)
+            })}
+          </div>
         </div>
-      </div>
+      }
       <div className='create-group-set'>
 
         <h4>Anyone Else</h4>

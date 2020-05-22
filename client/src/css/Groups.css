@@ -3,7 +3,6 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-gap: 1em;
-  margin: 3em 2em 0 2em;
 }
 
 .group-cards-container {
