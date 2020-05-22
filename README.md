@@ -1,110 +1,80 @@
-# Heading 1
-## Heading 2
-### Heading 3
-#### Heading 4
-##### Heading 5
-###### Heading 6
-​
-<!-- Italics -->
-*This text* is italic
-​
-_This text_ is italic
-​
-<!-- Strong -->
-**This text** is italic
-​
-__This text__ is italic
-​
-<!-- Strikethrough -->
-~~This text~~ is strikethrough
-​
-<!-- Horizontal Rule -->
-​
----
-___
-​
-<!-- Blockquote -->
-> This is a quote
-<!-- Links -->
-[Traversy Media](http://www.traversymedia.com)
-​
-[Traversy Media](http://www.traversymedia.com "Traversy Media")
-​
-<!-- UL -->
-* Item 1
-* Item 2
-* Item 3
-  * Nested Item 1
-  * Nested Item 2
-​
-<!-- OL -->
-1. Item 1
-1. Item 2
-1. Item 3
-​
-<!-- Inline Code Block -->
-`<p>This is a paragraph</p>`
-​
-<!-- Images -->
-![Markdown Logo](https://markdown-here.com/img/icon256.png)
-​
-<!-- Github Markdown -->
-​
-<!-- Code Blocks -->
-```bash
-  npm install
-  npm start
-```
-​
-```javascript
-  function add(num1, num2) {
-    return num1 + num2;
-  }
-```
-​
-```python
-  def add(num1, num2):
-    return num1 + num2
-```
-​
-<!-- Tables -->
-| Name     | Email          |
-| -------- | -------------- |
-| John Doe | john@gmail.com |
-| Jane Doe | jane@gmail.com |
-​
-<!-- Task List -->
-* [x] Task 1
-* [x] Task 2
-* [] Task 3
-
 ![Markdown Logo](https://media.giphy.com/media/BmmfETghGOPrW/giphy.gif)
 
 # Midnight Geniuses
 ## A Digital Workspace and Playground
 
 
+#### The goal was to create a platform for companies to host their virtual business meetings while also allowing some space for (virtual) social exchange between employees whom share similar interests. 
 
+## Midnight Geniuses Crew
+* **Erin Rowland** - UX Designer
 
-#### The goal was to create a platform for companies to host their virtual business meetings while also allowing some space for social interaction between employees whom share similar interests. 
+* **Will Heydt-Minor** - UX Designer
 
+* **Mike Abatemarco** - Developer
+
+* **Jason Mullings** - Developer
+
+* **Rafael Castano** - Developer
 
 ## Getting Started
 
+### Installation 
  Clone the repo onto your local machine by running this command inside your working directory :
  
 ```
 git clone https://github.com/mabatemarco/hackathon.git
 ```
+When in the root directory of your local repo, run this command:
 
+```
+rails db:create
 
+rails db:migrate
+```
 
+After, move into the **Client Directory**, then run this command: 
+```
+npm i
+```
 
+Once that is completed, move into the root directory and run the server by running this command: 
 
+```
+rails s
+```
 
+Open up another tab in your terminal, move into the Client directory, and run the command: 
 
-
+```
+npm run start
+```
 ## ERD
-![Markdown Logo](https://i.imgur.com/7TzcjCj.png) 
+![ERD Image](https://i.imgur.com/EhnVfrQ.png) 
 
-(As it stands now. Must be kept updated)
+## General Flowchart 
+
+![General Flowchart](https://i.imgur.com/qeK4o5z.png)
+
+## Hi-fi Mockups 
+![Hi-fi Mockups](https://i.imgur.com/CJYznko.png)
+
+## Built With (Technologies)
+
+* **Node.js** - (RTE) Runtime Environment System
+
+* **Ruby on Rails** - Back-end Framework
+
+* **PostgreSQL** - (DbMS) Database Management System
+
+* **React.js** - Front-end Framework
+
+* **Bootstrap** - Styling framework
+
+* **React-Scroll** - Scrolling Library
+
+* **Progress Circle** - Styling Tool
+
+
+
+

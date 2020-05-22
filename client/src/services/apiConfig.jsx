@@ -5,14 +5,14 @@ const JwtToken = localStorage.getItem('token') || null
 let apiUrl
 
 const apiUrls = {
-    production: 'https://sei-items-api.herokuapp.com/api',
-    development: 'http://localhost:3000/'
+  production: 'https://ddhackathon.herokuapp.com/',
+  development: 'http://localhost:3000/'
 }
 
 if (window.location.hostname === 'localhost') {
-    apiUrl = apiUrls.development
+  apiUrl = apiUrls.development
 } else {
-    apiUrl = apiUrls.production
+  apiUrl = apiUrls.production
 }
 
 const api = Axios.create({

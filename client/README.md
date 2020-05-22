@@ -1,68 +1,80 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Markdown Logo](https://media.giphy.com/media/BmmfETghGOPrW/giphy.gif)
 
-## Available Scripts
+# Midnight Geniuses
+## A Digital Workspace and Playground
 
-In the project directory, you can run:
 
-### `npm start`
+#### The goal was to create a platform for companies to host their virtual business meetings while also allowing some space for (virtual) social exchange between employees whom share similar interests. 
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Midnight Geniuses Crew
+* **Erin Rowland** - UX Designer
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+* **Will Heydt-Minor** - UX Designer
 
-### `npm test`
+* **Mike Abatemarco** - Developer
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* **Jason Mullings** - Developer
 
-### `npm run build`
+* **Rafael Castano** - Developer
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Started
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Installation 
+ Clone the repo onto your local machine by running this command inside your working directory :
+ 
+```
+git clone https://github.com/mabatemarco/hackathon.git
+```
+When in the root directory of your local repo, run this command:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+rails db:create
 
-### `npm run eject`
+rails db:migrate
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+After, move into the **Client Directory**, then run this command: 
+```
+npm i
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Once that is completed, move into the root directory and run the server by running this command: 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+rails s
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Open up another tab in your terminal, move into the Client directory, and run the command: 
 
-## Learn More
+```
+npm run start
+```
+## ERD
+![ERD Image](https://i.imgur.com/EhnVfrQ.png) 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## General Flowchart 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![General Flowchart](https://i.imgur.com/qeK4o5z.png)
 
-### Code Splitting
+## Hi-fi Mockups 
+![Hi-fi Mockups](https://i.imgur.com/CJYznko.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Built With (Technologies)
 
-### Analyzing the Bundle Size
+* **Node.js** - (RTE) Runtime Environment System
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+* **Ruby on Rails** - Back-end Framework
 
-### Making a Progressive Web App
+* **PostgreSQL** - (DbMS) Database Management System
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+* **React.js** - Front-end Framework
 
-### Advanced Configuration
+* **Bootstrap** - Styling framework
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+* **React-Scroll** - Scrolling Library
 
-### Deployment
+* **Progress Circle** - Styling Tool
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-### `npm run build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
