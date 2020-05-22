@@ -4,12 +4,16 @@ import { Link } from 'react-router-dom';// removed withRouter and useHistory
 
 
 export default function Landing() {
-  
+
 
   return (
-    <div>
-      <p>Welcome, login or register.</p>
-      <Link to='/login'><button >Login/Register</button></Link>
+    <div className="landing-page">
+      <div className="content-box">
+        <p>Let's Get Started</p>
+      </div>
+      <div className="login-btn">
+      <Link to='/login'><button>Log in</button></Link>
+      </div>
     </div>
   )
 }

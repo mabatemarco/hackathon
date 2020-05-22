@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import '../css/CreateGroup.css';
 import { createGroup } from '../services/apihelper';
 import { withRouter } from 'react-router-dom'
