@@ -28,6 +28,8 @@ class App extends Component {
     },
     userData: null,
     userWeather: null,
+    modalShow: false,
+    
   }
 
   componentDidMount = async () => {
@@ -46,7 +48,6 @@ class App extends Component {
         this.props.history.push('/groups')
       }
     }
-    console.log(this.state.userWeather)
   }
 
   handleLogin = async (e) => {
@@ -100,6 +101,13 @@ class App extends Component {
     this.props.history.push('/')
   }
 
+   modalHandler = (oneUser) => {
+     this.setState({
+       modalShow: !this.state.modalShow,
+     })
+     console.log(oneUser)
+  }
+
   render() {
     return (
       <div className="App">
@@ -108,6 +116,8 @@ class App extends Component {
           currentUser={this.state.currentUser}
           userData={this.state.userData}
           userWeather={this.state.userWeather}
+          modalHandler={this.modalHandler}
+          modalShow={this.state.modalShow}
         />
         <Switch>
           <Route exact path='/' render={() => (<Landing />)} />
@@ -125,11 +135,12 @@ class App extends Component {
               authFormData={this.state.authFormData}
               handleRegister={this.handleRegister}
             />)} />
-          <Route exact path='/profile/:id' render={() => (
+          <Route exact path='/profile/:id' render={(props) => (
             <Profile
               currentUser={this.state.currentUser}
               userData={this.state.userData}
               handleUpdate={this.hanldeUpdate}
+              id={props.match.params.id}
             />
           )} />
           <Route exact path='/groups' render={() => (
@@ -144,7 +155,10 @@ class App extends Component {
             <Group
               currentUser={this.state.currentUser}
               userData={this.state.userData}
-              id={props.match.params.id}
+                id={props.match.params.id}
+                modalShow={this.state.modalShow}
+                modalHandler={this.modalHandler}
+                oneUser={this.state.oneUser}
               />}
               </>
           )} />

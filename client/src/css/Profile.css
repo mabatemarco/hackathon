@@ -1,0 +1,115 @@
+#profile-page {
+  height: 900px;
+}
+
+#city-image {
+  width: 100vw;
+  height: 50vh;
+}
+
+#user-profile-image {
+  position: absolute;
+  top: 50vh;
+  z-index: 100;
+}
+
+#title-info-bar {
+  position: absolute;
+  top: 49vh;
+  background-color: gray;
+  opacity: 0.5;
+  width: 100vw;
+  height: 11vh;
+  display: flex;
+  flex-direction: row;
+}
+
+#profile-username {
+  position: absolute;
+  top: -3.5vh;
+  left: 30vw;
+  font-size: 3.3em;
+}
+
+#profile-user-title {
+  position: absolute;
+  top: 2.8vh;
+  left: 80vw;
+  font-size: 1em;
+}
+
+#profile-email {
+  color: #5496ff;
+  font-size: 16px;
+  position: absolute;
+  left: 30vw;
+}
+
+#icon-section {
+  position: absolute;
+  top: 60vh;
+  left: 85vw;
+  display: flex;
+  flex-direction: row;
+}
+
+#weather-icon {
+  position: absolute;
+  top: -2vh;
+  left: 5vw;
+}
+
+#profile-groups-title {
+  position: absolute;
+  top: 70vh;
+  left: 5vw;
+}
+
+#profile-group-area {
+  display: flex;
+  flex-direction: row ;
+  position: absolute;
+  top: 80vh;
+  left: 4vw;
+}
+
+.profile-group-column {
+  margin: 0vh 3.5vw;
+}
+
+.profile-group-picture {
+  height: 20vh;
+  width: 10vw;
+  border-radius: 50%;
+}
+
+#profile-interest-title {
+  position: absolute;
+  top: 110vh;
+  left: 5vw;
+}
+
+#profile-interest-area {
+  position: absolute;
+  top: 120vh;
+  left:10vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: .1fr 0.1fr;
+  gap: 1px 20px;
+  grid-template-areas: ". . . ." ". . . .";
+}
+
+.profile-interest-box {
+  border: 4px solid gray;
+}
+
+#message-button {
+  background-color: #7a96c3;
+  height: 5vh;
+  width: 40vw;
+  color: white;
+  position: absolute;
+  top: 150vh;
+  left: 30vw;
+}

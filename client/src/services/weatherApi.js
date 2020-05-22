@@ -19,6 +19,5 @@ export async function getCityWeather(city) {
   let response = await axios(
 `    http://api.openweathermap.org/data/2.5/weather?${formattedCity}&appid=1dc3131d12b8c9e540ad9929744a43f9`  )
 let ans = await response.data
-console.log(ans)
 return ans
 }

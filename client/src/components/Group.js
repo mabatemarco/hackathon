@@ -15,7 +15,6 @@ export default function Group(props) {
 
   useEffect(() => {
     async function getData() {
-      console.log('rfafwe')
       const groupData = await getOneGroup(props.id)
       setGroupData(groupData)
     }
@@ -54,6 +53,9 @@ export default function Group(props) {
               userData={props.userData}
               showCreate={showCreate}
               randos={randos}
+              modalShow={props.modalShow}
+              modalHandler={props.modalHandler}
+              oneUser={props.oneUser}
             />
             <Chat
               groupData={groupData}
