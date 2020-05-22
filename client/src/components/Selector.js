@@ -50,22 +50,7 @@ export default function Selector(props) {
             <div key={member.id} className='selector-members'>
               
               <div className='selector-member-images'>
-             
-                
-              {/*props.modalShow ? (
-                <div>
-                    <MyVerticallyCenteredModal
-                      id={member.id}
-                    userData={member.user}
-                    show={props.modalShow}
-                    modalClosed={props.modalHandler}
-                    oneUser={props.oneUser}
-                  />
-               
-                </div>):
-                <></>
-              */}
-                <Link to={`/profile/${member.id}`}>
+                <Link to={`/profile/${member.user_id}`}>
                   <img src={member.user.image} />
                   </Link>
               </div>

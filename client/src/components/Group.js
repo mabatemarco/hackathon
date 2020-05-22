@@ -39,7 +39,6 @@ export default function Group(props) {
               groupData={groupData}
               userData={props.userData}
               showCreate={showCreate}
-              randos={randos}
               modalShow={props.modalShow}
               modalHandler={props.modalHandler}
               oneUser={props.oneUser}

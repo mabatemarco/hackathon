@@ -40,6 +40,7 @@ div.dropdown-menu.show {
   flex-direction: column;
   padding: 10px;
   border: 2px solid black;
+  z-index: 2;
 }
 
 div.dropdown-menu.show a {

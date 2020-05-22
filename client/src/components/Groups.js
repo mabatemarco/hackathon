@@ -26,6 +26,12 @@ class Groups extends Component {
     this.setState({ displayModal: displayModal })
   }
 
+  showCreate = () => {
+    this.setState(prevState => ({
+      displayModal: !prevState.displayModal
+    }))
+  }
+
 
   render() {
     return (
@@ -50,9 +56,9 @@ class Groups extends Component {
           <Selector />
         </div> */}
         {
-          this.state.displayModal ? <CreateGroup /> : null
+          this.state.displayModal ? <CreateGroup userData={this.props.userData} showCreate={this.showCreate()}/> : null
         }
-        <AddGroupBox clicked={this.clickHandler} />
+        <AddGroupBox clicked={this.showCreate} />
       </div >
     )
   }
