@@ -104,7 +104,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: .1fr 0.1fr;
-  gap: 1px 20px;
+  gap: 1px 55px;
   grid-template-areas: ". . . ." ". . . .";
 }
 
@@ -172,10 +172,10 @@
 }
 
 .profile-progress-circle span img{
-  font-size: 66px;
+  font-size: 74px;
  position:absolute;
- left: 22px;
- top: 18.9px;
+ left: 17px;
+ top: 16.9px;
  height:4.27em;
  width:4.27em;
  border-radius: 100%;
