@@ -9,21 +9,25 @@ function Login(props) {
 
   return (
     <div className="auth-container">
-      <h2>login</h2>
-      <hr />
-      <form onSubmit={(e) => {
-        props.handleLogin(e);
-
-      }}
-      >
-        <p>Username:</p>
-        <input name="username" type="text" value={props.authFormData.username} onChange={e => props.handleChange(e)} />
-        <p>Password:</p>
-        <input name="password" type="password" value={props.authFormData.password} onChange={e => props.handleChange(e)} />
-        <hr />
-        <button>Login</button>
-        <Link to="/register">Register</Link>
-      </form>
+      <div className="login-box">
+        <h2>Let's Get Started</h2>
+        <div className="inputs">
+          <form onSubmit={(e) => {
+            props.handleLogin(e);
+          }} >
+            <div className="login-bar">
+              <input placeholder="Username" name="username" type="text" value={props.authFormData.username} onChange={e => props.handleChange(e)} />
+            </div>
+            <div className="pw-bar">
+              <input placeholder="Password" name="password" type="password" value={props.authFormData.password} onChange={e => props.handleChange(e)} />
+            </div>
+            <div className="login-register">
+              <button id="login-btn">Login</button>
+              <Link to="/register"><button id="register-btn">Register</button></Link>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   );
 }

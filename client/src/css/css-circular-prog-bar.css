@@ -10,7 +10,6 @@
    line-height: 5em;
 }
 
-
 .progress-circle:after{
     border: none;
     position: absolute;
@@ -24,6 +23,7 @@
     background-color: white;
     content: " ";
 }
+
 /* Text inside the control */
 .progress-circle span {
     position: absolute;
