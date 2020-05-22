@@ -13,26 +13,30 @@ export default function Events(props) {
 
   return (
     <div className='events-container'>
-    <div className='events'>
-      <h4>Upcoming Events</h4>
-      {sortedEvents.map(event => {
-        let showDate = months[parseInt(event.date.slice(5, 7))] + ' ' + event.date.slice(8, 10)
-        let amPm = 'AM'
-        let hour = event.date.slice(11, 13) - (props.timeZone / 60)
-        if (hour > 12) {
-          hour -= 12;
-          amPm = 'PM'
-        }
-        let min = event.date.slice(14, 16)
-        return (
+      <div className='events'>
+        <h4>Upcoming Events</h4>
+        {sortedEvents.length > 0 ? sortedEvents.map(event => {
+          let showDate = months[parseInt(event.date.slice(5, 7))] + ' ' + event.date.slice(8, 10)
+          let amPm = 'AM'
+          let hour = event.date.slice(11, 13) - (props.timeZone / 60)
+          if (hour > 12) {
+            hour -= 12;
+            amPm = 'PM'
+          }
+          let min = event.date.slice(14, 16)
+          return (
+            <div className='chat-event-event'>
+              <h4>{event.title}</h4>
+              <h5>{showDate}, {hour}:{min}{amPm}</h5>
+              <a href={event.zoom}>Zoom link</a>
+            </div>
+          )
+        }) :
           <div className='chat-event-event'>
-            <h4>{event.title}</h4>
-            <h5>{showDate}, {hour}:{min}{amPm}</h5>
-            <a href={event.zoom}>Zoom link</a>
+            <h3 style={{textAlign: 'center'}}>No upcoming events. Plan something!</h3>
           </div>
-        )
-      })}
-    </div>
+        }
+      </div>
       <div id="event-add" className='chat-event-event'>
         <img src={plus} />
       </div>

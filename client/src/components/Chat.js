@@ -56,7 +56,7 @@ export default function Chat(props) {
 
       <div className='chat-events'>
         <div id='chat' className='chat-window'>
-          {groupData.posts.map(post => {
+          {groupData.posts.length>0 ? groupData.posts.map(post => {
             let showDate = months[parseInt(post.created_at.slice(5, 7))] + ' ' + post.created_at.slice(8, 10)
             let amPm = 'AM'
             let hour = post.created_at.slice(11, 13)-(props.timeZone/60)
@@ -81,7 +81,11 @@ export default function Chat(props) {
                   <p>{post.post}</p>
                 </div>
               </div>)
-          })}
+          }) :
+            <div className='chat-post'>
+              <h2>There's nothing here!  Get the conversation started.</h2>
+            </div>
+          }
         </div>
 
         <Events
