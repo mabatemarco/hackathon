@@ -16,7 +16,7 @@ export default class Profile extends Component {
   }
 
   componentDidMount = async () => {
-    const userData = await getOneUser(this.state.id)
+    const userData = await getOneUser(this.props.id)
     const userWeather = await getCityWeather(userData.city)
     this.setState({
       userData,

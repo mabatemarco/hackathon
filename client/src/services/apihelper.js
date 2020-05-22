@@ -43,6 +43,11 @@ export async function createGroup(data) {
   return resp.data
 }
 
+export async function addUserToGroup(groupId) {
+  const resp = await api.post(`/groups/${groupId}/members`)
+  return resp.data
+}
+
 // ==================Posts====================
 //data should just include post
 export async function createPost(groupId, data) {

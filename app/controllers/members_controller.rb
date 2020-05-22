@@ -16,8 +16,8 @@ class MembersController < ApplicationController
 
   # POST /members
   def create
-    @member = Member.new(member_params)
-
+    @member = Member.new(group_id: params[:group_id])
+    @member.user_id=@current_user.id
     if @member.save
       render json: @member, status: :created
     else

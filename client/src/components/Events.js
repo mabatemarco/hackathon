@@ -14,16 +14,23 @@ export default function Events(props) {
   return (
     <div className='events-container'>
       <div className='events'>
-        <h4>Upcoming Events</h4>
+        <h4 className='events-h4'>Upcoming Events</h4>
         {sortedEvents.length > 0 ? sortedEvents.map(event => {
-          let showDate = months[parseInt(event.date.slice(5, 7))] + ' ' + event.date.slice(8, 10)
-          let amPm = 'AM'
-          let hour = event.date.slice(11, 13) - (props.timeZone / 60)
-          if (hour > 12) {
-            hour -= 12;
-            amPm = 'PM'
-          }
-          let min = event.date.slice(14, 16)
+          let month = months[parseInt(event.date.slice(5, 7))]
+            let day = event.date.slice(8, 10)
+            let amPm = 'AM'
+            let min = event.date.slice(14, 16)
+            let hour = event.date.slice(11, 13) - (props.timeZone / 60)
+            if (hour < 0) {
+              hour = 24 + hour - 1;
+              min = 60 - min;
+              day-=1
+            }
+            if (hour > 12) {
+              hour -= 12;
+              amPm = 'PM'
+            }
+            let showDate= `${month} ${day}`
           return (
             <div className='chat-event-event'>
               <h4>{event.title}</h4>
@@ -38,7 +45,7 @@ export default function Events(props) {
         }
       </div>
       <div id="event-add" className='chat-event-event'>
-        <img src={plus} />
+        <img onClick={props.showEventCreate} src={plus} />
       </div>
     </div >
   )

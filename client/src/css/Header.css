@@ -3,13 +3,34 @@
   height: 10vh;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 #search-bar {
   height: 2vh;
-  position: absolute;
+  /* position: absolute;
   top: 4vh;
-  right: 2vw;
+  right: 2vw; */
+}
+
+.header-form{
+  display:flex;
+  align-items: center;
+  margin-right: 5em;
+}
+
+.header-form input{
+  background-color: #9AAFD2;
+  border:0;
+  width: 150px;
+  font-size: 1.3em;
+  padding:5px
+}
+
+.search-icon{
+  margin-right: 1em;
+  width: 60px;
+  height: 40px;
 }
 
 #user-section {
@@ -41,6 +62,7 @@ div.dropdown-menu.show {
   flex-direction: column;
   padding: 10px;
   border: 2px solid black;
+  z-index: 2;
 }
 
 div.dropdown-menu.show a {

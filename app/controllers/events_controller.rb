@@ -15,9 +15,8 @@ class EventsController < ApplicationController
 
   # POST /events
   def create
-    @group=Group.find(params[:group_id])
-
-    @post = @group.posts.new(post_params)
+    @event=Event.new(event_params)
+    @event.group_id=params[:group_id]
 
     if @event.save
       render json: @event, status: :created, location: @event
@@ -48,6 +47,6 @@ class EventsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def event_params
-      params.require(:event).permit(:user_id, :title, :date)
+      params.require(:event).permit(:user_id, :title, :date, :zoom)
     end
 end
